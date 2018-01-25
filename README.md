@@ -1,4 +1,4 @@
-# ShopSocial
+## ShopSocial
 
 ### Problem statement
 
