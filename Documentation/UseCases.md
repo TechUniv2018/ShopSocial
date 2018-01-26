@@ -15,9 +15,9 @@ The profound use cases of this solution are as under:
 11. A customer can **share his/her activities on screen with another shopper** on the website.
 12. A customer can **sign out** of the account on the website.
 
-##Workflow
+## Workflow
 
-###1. An administrator can add products to the website using pre-defined catalog.
+### 1. An administrator can add products to the website using pre-defined catalog.
 _Actors_ – Administrator, The Website, Catalog API
 _Description_ – This use case describes how an administrator can add products to the website.
 
@@ -30,7 +30,7 @@ _Description_ – This use case describes how an administrator can add products 
   1. An error will be displayed on the website if API is not accessible.
   2. The administrator can retry to add the products.
 
-###2. An administrator can remove products available on the website.
+### 2. An administrator can remove products available on the website.
 _Actors_ – Administrator, The Website
 _Description_ – This use case describes how an administrator can remove products available on the website.
 
@@ -39,7 +39,7 @@ _Description_ – This use case describes how an administrator can remove produc
   2.	The administrator will select the products to be removed from the list.
   3.  The selected products will be removed from the website.
 
-###3. An administrator can specify product inventory on the website.
+### 3. An administrator can specify product inventory on the website.
 _Actors_ – Administrator, The Website
 _Description_ – This use case describes how an administrator can modify product quantity available on the website.
 
@@ -53,7 +53,7 @@ _Description_ – This use case describes how an administrator can modify produc
   1. An error will be displayed on the website if the values given for quantity is less than 0 or in fraction.
   2. The administrator can retry to modify the quantity by entering valid values for the products.
 
-###4. A customer can browse for products on the website.
+### 4. A customer can browse for products on the website.
 _Actors_ – Customer, The Website
 _Description_ – This use case describes how a customer can browse through the products available on the website.
 
@@ -63,7 +63,7 @@ _Description_ – This use case describes how a customer can browse through the 
   3.  The customer can browse through the website by interacting with the webpage.
   4.  The customer can view the description and images of the product on the product page.
 
-###5. A customer can create an account on the website.
+### 5. A customer can create an account on the website.
 _Actors_ – Customer, The Website
 _Description_ – This use case describes how a customer can create a user account on the website.
 
@@ -78,7 +78,7 @@ _Description_ – This use case describes how a customer can create a user accou
   1. The customer will be greeted with an error on unsuccessful registration.
   2. The customer can verify the details entered to check for any errors and try again to register.
 
-###6. A customer can sign in to the account on the website.
+### 6. A customer can sign in to the account on the website.
 _Actors_ – Customer, The Website
 _Description_ – This use case describes how a customer can log-in to the website using the account created using sign-up.
 
@@ -93,7 +93,7 @@ _Description_ – This use case describes how a customer can log-in to the websi
   1. The customer will be greeted with an error on unsuccessful sign-in.
   2. The customer can verify the details entered to check for any errors and try again to sign-in.
 
-###7. A customer can add products to the cart on the website.
+### 7. A customer can add products to the cart on the website.
 _Actors_ – Customer, The Website
 _Description_ – This use case describes how a customer can add products to the cart on the website.
 
@@ -108,7 +108,7 @@ _Description_ – This use case describes how a customer can add products to the
   1. The customer will be greeted with an error on unsuccessful sign-in.
   2. The customer can verify the details entered to check for any errors and try again to sign-in.
 
-###8. A customer can remove products from the cart on the website.
+### 8. A customer can remove products from the cart on the website.
 _Actors_ – Customer, The Website
 _Description_ – This use case describes how a customer can remove products from the cart on the website.
 
@@ -117,7 +117,7 @@ _Description_ – This use case describes how a customer can remove products fro
   2.	The product will be removed from the customer's cart and the person with whom the cart was shared with.
   3.  The customer will be present on the same cart page with other products existing in the cart.
 
-###9. A customer can pay and checkout from the cart on the website.
+### 9. A customer can pay and checkout from the cart on the website.
 _Actors_ – Customer, The Website, The Payment Gateway
 _Description_ – This use case describes how a customer can proceed to pay and checkout the products in the cart, on the website.
 
@@ -133,7 +133,7 @@ _Description_ – This use case describes how a customer can proceed to pay and 
   1.	On an unsuccessful payment response from the gateway, the order will be deemed cancelled.
   2.	The customer can proceed to order the products again and complete the payment to place the order successfully.
 
-###10. A customer can chat with another shopper on the website whilst shopping on the website.
+### 10. A customer can chat with another shopper on the website whilst shopping on the website.
 _Actors_ – Customer One, Customer Two, The Website
 _Description_ – This use case describes how a customer can chat using text with another customer on the website.
 
@@ -151,7 +151,7 @@ _Description_ – This use case describes how a customer can chat using text wit
   1.	When Customer One requests to have a chat with Customer Two, if the Customer Two rejects the invite, a message explaining the same is displayed to Customer One.
   2.	Customer One's chat window will be closed.
 
-###11. A customer can share his/her activities on screen with another shopper** on the website.
+### 11. A customer can share his/her activities on screen with another shopper** on the website.
 _Actors_ – Customer One, Customer Two, The Website
 _Description_ – This use case describes how a customer can chat using text with another customer on the website.
 
@@ -167,7 +167,7 @@ _Description_ – This use case describes how a customer can chat using text wit
 #### Alternate Workflow 11b -
   1.	When Customer One requests to share events with Customer Two, if the Customer Two rejects the invite, a message explaining the same is displayed to Customer One.
 
-###12. A customer can sign out of the account on the website.
+###  12. A customer can sign out of the account on the website.
 _Actors_ – Customer, The Website
 _Description_ – This use case describes how a customer can log-out of the website, when signed-in.
 
