@@ -17,7 +17,8 @@ The profound use cases of this solution are as under:
 ## Workflow
 
 ### 1. An administrator can add products to the website using pre-defined catalog.
-> _Actors_ – Administrator, The Website, Catalog API
+> _Actors_ – Administrator, Catalog API
+
 > _Description_ – This use case describes how an administrator can add products to the website.
 
 #### Normal Workflow –
@@ -30,7 +31,8 @@ The profound use cases of this solution are as under:
   2. The administrator can retry to add the products.
 
 ### 2. An administrator can remove products available on the website.
-> _Actors_ – Administrator, The Website
+> _Actors_ – Administrator
+
 > _Description_ – This use case describes how an administrator can remove products available on the website.
 
 #### Normal Workflow –
@@ -39,7 +41,8 @@ The profound use cases of this solution are as under:
   3.  The selected products will be removed from the website.
 
 ### 3. An administrator can specify product inventory on the website.
-> _Actors_ – Administrator, The Website
+> _Actors_ – Administrator
+
 > _Description_ – This use case describes how an administrator can modify product quantity available on the website.
 
 #### Normal Workflow –
@@ -53,7 +56,8 @@ The profound use cases of this solution are as under:
   2. The administrator can retry to modify the quantity by entering valid values for the products.
 
 ### 4. A customer can browse for products on the website.
-> _Actors_ – Customer, The Website
+> _Actors_ – Customer
+
 > _Description_ – This use case describes how a customer can browse through the products available on the website.
 
 #### Normal Workflow –
@@ -63,7 +67,8 @@ The profound use cases of this solution are as under:
   4.  The customer can view the description and images of the product on the product page.
 
 ### 5. A customer can create an account on the website.
-> _Actors_ – Customer, The Website
+> _Actors_ – Customer
+
 > _Description_ – This use case describes how a customer can create a user account on the website.
 
 #### Normal Workflow –
@@ -78,7 +83,8 @@ The profound use cases of this solution are as under:
   2. The customer can verify the details entered to check for any errors and try again to register.
 
 ### 6. A customer can sign in to the account on the website.
-> _Actors_ – Customer, The Website
+> _Actors_ – Customer
+
 > _Description_ – This use case describes how a customer can log-in to the website using the account created using sign-up.
 
 #### Normal Workflow –
@@ -93,7 +99,8 @@ The profound use cases of this solution are as under:
   2. The customer can verify the details entered to check for any errors and try again to sign-in.
 
 ### 7. A customer can add products to the cart on the website.
-> _Actors_ – Customer, The Website
+> _Actors_ – Customer
+
 > _Description_ – This use case describes how a customer can add products to the cart on the website.
 
 #### Normal Workflow –
@@ -108,7 +115,8 @@ The profound use cases of this solution are as under:
   2. The customer can verify the details entered to check for any errors and try again to sign-in.
 
 ### 8. A customer can remove products from the cart on the website.
-> _Actors_ – Customer, The Website
+> _Actors_ – Customer
+
 > _Description_ – This use case describes how a customer can remove products from the cart on the website.
 
 #### Normal Workflow –
@@ -117,7 +125,8 @@ The profound use cases of this solution are as under:
   3.  The customer will be present on the same cart page with other products existing in the cart.
 
 ### 9. A customer can pay and checkout from the cart on the website.
-> _Actors_ – Customer, The Website, The Payment Gateway
+> _Actors_ – Customer, The Payment Gateway
+
 > _Description_ – This use case describes how a customer can proceed to pay and checkout the products in the cart, on the website.
 
 #### Normal Workflow –
@@ -133,7 +142,8 @@ The profound use cases of this solution are as under:
   2.	The customer can proceed to order the products again and complete the payment to place the order successfully.
 
 ### 10. A customer can chat with another shopper on the website whilst shopping on the website.
-> _Actors_ – Customer One, Customer Two, The Website
+> _Actors_ – Customer One, Customer Two
+
 > _Description_ – This use case describes how a customer can chat using text with another customer on the website.
 
 #### Normal Workflow –
@@ -151,7 +161,8 @@ The profound use cases of this solution are as under:
   2.	Customer One's chat window will be closed.
 
 ### 11. A customer can share his/her activities on screen with another shopper** on the website.
-> _Actors_ – Customer One, Customer Two, The Website
+> _Actors_ – Customer One, Customer Two
+
 > _Description_ – This use case describes how a customer can chat using text with another customer on the website.
 
 #### Normal Workflow –
