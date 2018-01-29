@@ -12,9 +12,6 @@ Our solution aims to develop a software product which makes online shopping a so
 
 Our **ShopSocial** e-commerce application aims to provide the following basic features:
 
-- Provide an **Admin Console** to allow the site owner to add and remove products from pre-defined lists and manage the inventory.
-- Allow users to create an **account** on our portal and browse the products available.
-- Allow users to add products to a **shopping cart**, which can be converted to an order on checkout.
+- Allow users to add a buddy to **shop together** by sharing their **browsing activities** and share a **common shopping cart**.
 - Provide a text-based **chat** option to the user to chat with his/her buddies.
-- Allow users to add a buddy to **shop together** and share a **common shopping cart**.
-- Allow users to share their **browsing activities** on the website with their buddy when they *shop together*.
+- Allow individual users to **browse, select and order** products on the website.
