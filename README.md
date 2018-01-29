@@ -12,6 +12,6 @@ Our solution aims to develop a software product which makes online shopping a so
 
 Our **ShopSocial** e-commerce application aims to provide the following basic features:
 
-- Allow users to add a buddy to **shop together** by sharing their **browsing activities** and share a **common shopping cart**.
-- Provide a text-based **chat** option to the user to chat with his/her buddies.
-- Allow individual users to **browse, select and order** products on the website.
+* Allow users to add a buddy to **shop together** by sharing their **browsing activities** and share a **common shopping cart**.
+* Provide a text-based **chat** option to the user to chat with his/her buddies.
+* Allow individual users to **browse, select and order** products on the website.
