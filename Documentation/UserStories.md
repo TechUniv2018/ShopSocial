@@ -1,6 +1,6 @@
-#User Stories
+# Epics and User Stories
 
-##CUSTOMER MANAGEMENT
+## CUSTOMER MANAGEMENT
 
 1. **Customer Sign Up**
 
@@ -20,7 +20,7 @@ email id and password I used to sign up.
 
 -  As a customer, I must be able view the orders placed by me in the past.
 
-##ADMINISTRATOR MANAGEMENT
+## ADMINISTRATOR MANAGEMENT
 
 1. **Administrator Login**
 
@@ -37,7 +37,7 @@ quantity, title, specifications, and image of the product.
 
 - I expect to be able to get product details, from third party merchants to push into my database.
 
-##PRODUCT MANAGEMENT
+## PRODUCT MANAGEMENT
 
 1. **Product Links (Permalink)**
 
@@ -58,7 +58,7 @@ the application.
 - I expect to be able to view information related to product like the
 different images of the product description, specification and price.
 
-##CART MANAGEMENT
+## CART MANAGEMENT
 
 1. **Addition to Cart**
 
@@ -71,11 +71,11 @@ items already in cart.
 
 3. **Social Cart**
 
--  As a customer, I must be able to share my cart with another customer  while shopping.
+- As a customer, I must be able to share my cart with another customer  while shopping.
 
 - I would like the cart to be checked out by paying for the products by a single customer.
 
-##PAYMENT MANAGEMENT
+## PAYMENT MANAGEMENT
 
 1. **Checkout**
 
@@ -83,7 +83,7 @@ items already in cart.
 
 - After the payment is successful, a record/order detail must be made available to both the user(s) in case of group shopping activity.
 
-##CHAT MANAGEMENT
+## CHAT MANAGEMENT
 
 1. **Chat initiation**
 
@@ -98,7 +98,7 @@ items already in cart.
 - As a customer, I must be able to close a chat session and the person I’m chatting with must be informed that the chat session has
 been closed.
 
-##SHARED EXPERIENCE MANAGEMENT
+## SHARED EXPERIENCE MANAGEMENT
 
 1. **Screen share initiation**
 
