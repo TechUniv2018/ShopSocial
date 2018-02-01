@@ -300,3 +300,6 @@ The profound use cases of this solution are as under:
 
 ### Data Flow Diagram - Level 0
   ![Data Flow Diagram - Level 0](UMLDiagrams/DFD_Level_Zero.jpg)
+
+### ER Diagram
+  ![ER Diagram](UMLDiagrams/ER_Diagram.png)
