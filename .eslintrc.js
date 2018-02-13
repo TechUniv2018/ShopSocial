@@ -1,4 +1,8 @@
 module.exports = {
-    "extends": "airbnb-base",
-    "env": {"jest": true}
+  env: {
+    es6: true,
+    node: true,
+    jest: true,
+  },
+  extends: 'airbnb-base',
 };
