@@ -1,0 +1,31 @@
+{
+  "name": "shopsocial",
+  "version": "1.0.0",
+  "description": "### Problem statement",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechUniv2018/ShopSocial.git"
+  },
+  "author": "mahesh_h_p, aditi_verma, aakash_verma, sahil_balodi, anand_shanker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TechUniv2018/ShopSocial/issues"
+  },
+  "homepage": "https://github.com/TechUniv2018/ShopSocial#readme",
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "jest": "^22.2.2",
+    "sequelize-cli": "^3.2.0"
+  },
+  "dependencies": {
+    "hapi": "^16.6.2",
+    "pg": "^6.4.2",
+    "sequelize": "^4.33.4"
+  }
+}
