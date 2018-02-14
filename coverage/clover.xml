@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1518626290538" clover="3.2.0">
-  <project timestamp="1518626290539" name="All files">
+<coverage generated="1518626528802" clover="3.2.0">
+  <project timestamp="1518626528802" name="All files">
     <metrics statements="47" coveredstatements="40" conditionals="19" coveredconditionals="9" methods="8" coveredmethods="7" elements="74" coveredelements="56" complexity="0" loc="47" ncloc="47" packages="4" files="7" classes="7">
       <package name="models">
         <metrics statements="26" coveredstatements="24" conditionals="9" coveredconditionals="6" methods="5" coveredmethods="5"/>
@@ -79,7 +79,7 @@
         <file name="addProductById.js" path="/Users/maheshhp/Downloads/ShopSocial/src/routes/api/v1/addProductById.js">
           <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="1" count="2" type="stmt"/>
-          <line num="6" count="1" type="stmt"/>
+          <line num="6" count="2" type="stmt"/>
         </file>
       </package>
     </metrics>
