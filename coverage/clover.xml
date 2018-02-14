@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1518573900366" clover="3.2.0">
-  <project timestamp="1518573900367" name="All files">
-    <metrics statements="44" coveredstatements="37" conditionals="19" coveredconditionals="9" methods="7" coveredmethods="6" elements="70" coveredelements="52" complexity="0" loc="44" ncloc="44" packages="3" files="6" classes="6">
+<coverage generated="1518626290538" clover="3.2.0">
+  <project timestamp="1518626290539" name="All files">
+    <metrics statements="47" coveredstatements="40" conditionals="19" coveredconditionals="9" methods="8" coveredmethods="7" elements="74" coveredelements="56" complexity="0" loc="47" ncloc="47" packages="4" files="7" classes="7">
       <package name="models">
         <metrics statements="26" coveredstatements="24" conditionals="9" coveredconditionals="6" methods="5" coveredmethods="5"/>
-        <file name="index.js" path="/Users/aakashverma/Documents/ShopSocial/models/index.js">
+        <file name="index.js" path="/Users/maheshhp/Downloads/ShopSocial/models/index.js">
           <metrics statements="20" coveredstatements="18" conditionals="9" coveredconditionals="6" methods="3" coveredmethods="3"/>
           <line num="3" count="2" type="stmt"/>
           <line num="4" count="2" type="stmt"/>
@@ -27,13 +27,13 @@
           <line num="33" count="2" type="stmt"/>
           <line num="35" count="2" type="stmt"/>
         </file>
-        <file name="productdetails.js" path="/Users/aakashverma/Documents/ShopSocial/models/productdetails.js">
+        <file name="productdetails.js" path="/Users/maheshhp/Downloads/ShopSocial/models/productdetails.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="2" count="2" type="stmt"/>
           <line num="3" count="2" type="stmt"/>
           <line num="23" count="2" type="stmt"/>
         </file>
-        <file name="userdetails.js" path="/Users/aakashverma/Documents/ShopSocial/models/userdetails.js">
+        <file name="userdetails.js" path="/Users/maheshhp/Downloads/ShopSocial/models/userdetails.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="2" count="2" type="stmt"/>
           <line num="3" count="2" type="stmt"/>
@@ -42,35 +42,44 @@
       </package>
       <package name="src">
         <metrics statements="14" coveredstatements="9" conditionals="10" coveredconditionals="3" methods="1" coveredmethods="0"/>
-        <file name="server.js" path="/Users/aakashverma/Documents/ShopSocial/src/server.js">
+        <file name="server.js" path="/Users/maheshhp/Downloads/ShopSocial/src/server.js">
           <metrics statements="14" coveredstatements="9" conditionals="10" coveredconditionals="3" methods="1" coveredmethods="0"/>
-          <line num="1" count="1" type="stmt"/>
-          <line num="2" count="1" type="stmt"/>
-          <line num="4" count="1" type="stmt"/>
-          <line num="7" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="8" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="1" count="2" type="stmt"/>
+          <line num="2" count="2" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="7" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="8" count="2" type="cond" truecount="1" falsecount="1"/>
           <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="13" count="1" type="stmt"/>
-          <line num="18" count="1" type="stmt"/>
-          <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="13" count="2" type="stmt"/>
+          <line num="18" count="2" type="stmt"/>
+          <line num="20" count="2" type="cond" truecount="1" falsecount="1"/>
           <line num="21" count="0" type="stmt"/>
           <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="23" count="0" type="stmt"/>
           <line num="25" count="0" type="stmt"/>
-          <line num="29" count="1" type="stmt"/>
+          <line num="29" count="2" type="stmt"/>
         </file>
       </package>
       <package name="src.routes">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <file name="getRequest.js" path="/Users/aakashverma/Documents/ShopSocial/src/routes/getRequest.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="getRequest.js" path="/Users/maheshhp/Downloads/ShopSocial/src/routes/getRequest.js">
           <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="1" count="1" type="stmt"/>
+          <line num="1" count="2" type="stmt"/>
           <line num="6" count="1" type="stmt"/>
         </file>
-        <file name="index.js" path="/Users/aakashverma/Documents/ShopSocial/src/routes/index.js">
-          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="1" count="1" type="stmt"/>
-          <line num="3" count="1" type="stmt"/>
+        <file name="index.js" path="/Users/maheshhp/Downloads/ShopSocial/src/routes/index.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="2" type="stmt"/>
+          <line num="2" count="2" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.routes.api.v1">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="addProductById.js" path="/Users/maheshhp/Downloads/ShopSocial/src/routes/api/v1/addProductById.js">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="1" count="2" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
         </file>
       </package>
     </metrics>
