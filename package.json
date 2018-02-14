@@ -4,7 +4,8 @@
   "description": "### Problem statement",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "NODE_ENV=test sequelize db:migrate:undo:all && NODE_ENV=test sequelize db:migrate && jest --coverage",
+    "start": "NODE_ENV=test sequelize db:migrate:undo:all && NODE_ENV=test sequelize db:migrate && node server.js"
   },
   "repository": {
     "type": "git",
@@ -18,9 +19,11 @@
   "homepage": "https://github.com/TechUniv2018/ShopSocial#readme",
   "devDependencies": {
     "eslint": "^4.17.0",
+    "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "jest": "^22.2.2",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.6.1",
     "sequelize-cli": "^3.2.0"
   },
   "dependencies": {
