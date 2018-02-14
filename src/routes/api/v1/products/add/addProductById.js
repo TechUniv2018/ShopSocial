@@ -7,9 +7,27 @@ module.exports = [
     path: '/api/v1/products/add/{productId}',
     handler: (request, response) => {
       getProductByID(request.params.productId).then((result) => {
-        response({
-          action: 'Product added',
-          statusCode: 201,
+        let productCategory = result.categories;
+        if (productCategory.length === 0) {
+          productCategory = 'undefined';
+        } else {
+          productCategory = productCategory[0].name;
+        }
+        Models.ProductDetails.create({
+          productID: result.id,
+          name: result.name,
+          price: result.price,
+          upc: result.upc,
+          description: result.description,
+          manufacturer: result.manufacturer,
+          model: result.model,
+          image: result.image,
+          category: productCategory,
+        }).then((res) => {
+          response({
+            action: 'Product added',
+            statusCode: 201,
+          });
         });
       }).catch((error) => {
         response({
