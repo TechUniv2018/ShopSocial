@@ -6,7 +6,6 @@ const addProductsToDB = (productsArray) => {
     return null;
   }
   productsArray.forEach((product) => {
-    console.log(product.categories[0]);
     const productObject = {
       productID: product.id,
       name: product.name,

@@ -3,6 +3,7 @@ const Models = require('../../../../../../models/');
 const { Op } = require('sequelize');
 
 beforeEach(() => Models.ProductDetails.destroy({ truncate: true }));
+afterEach(() => Models.ProductDetails.destroy({ truncate: true }));
 afterAll(() => Models.close());
 
 describe('Tests for adding product/s to the database using the addProductsToDB helper function', () => {
@@ -122,7 +123,11 @@ describe('Tests for adding product/s to the database using the addProductsToDB h
   test('Test for successful insert of single product into database', (done) => {
     AddProductsToDB(singleProductArray).then((isInsert) => {
       if (isInsert) {
-        Models.ProductDetails.find().then((result) => {
+        Models.ProductDetails.find({
+          where: {
+            productID: 9132294,
+          },
+        }).then((result) => {
           expect(result.productID).toBe(singleProductArray[0].id);
           expect(result.name).toBe(singleProductArray[0].name);
           expect(result.price).toBe(singleProductArray[0].price);
