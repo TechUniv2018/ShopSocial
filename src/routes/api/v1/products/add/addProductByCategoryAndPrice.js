@@ -1,3 +1,5 @@
+const getProductsByCategory = require('../getProductById');
+
 module.exports = [
   {
     method: 'POST',
@@ -5,8 +7,8 @@ module.exports = [
     handler: (request, response) => {
       response({
         statusCode: 201,
-        result: 'Success'
-      })
+        result: 'Success',
+      });
     },
   },
 ];

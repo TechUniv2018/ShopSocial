@@ -1,6 +1,8 @@
 const getProductByID = require('../getProductById');
 const Models = require('../../../../../../models/');
 
+const insertProductIntoDatabase = productObject => Models.ProductDetails.create(productObject);
+
 module.exports = [
   {
     method: 'GET',
@@ -13,7 +15,7 @@ module.exports = [
         } else {
           productCategory = productCategory[0].name;
         }
-        Models.ProductDetails.create({
+        const productObject = {
           productID: result.id,
           name: result.name,
           price: result.price,
@@ -23,7 +25,8 @@ module.exports = [
           model: result.model,
           image: result.image,
           category: productCategory,
-        }).then((res) => {
+        };
+        insertProductIntoDatabase(productObject).then((res) => {
           response({
             action: 'Product added',
             statusCode: 201,

@@ -1,14 +1,64 @@
 const server = require('../../../../../server');
 const Models = require('../../../../../../models/');
 
+beforeEach(() => Models.ProductDetails.destroy({ truncate: true }));
+afterAll(() => Models.close());
+
 describe('Tests for adding multiple product/s to the database from external API', () => {
-  test('Test for successful response code from the server on a valid request', (done) => {
+  const validSingleProductPayload = {
+    productCategory: 'TVs',
+    productBrand: 'Insignia',
+    priceFrom: 160,
+    priceTo: 170,
+  };
+  const invalidProductPayload = {
+    productCategory: 'As',
+    productBrand: 'Insignia',
+    priceFrom: 160,
+    priceTo: 160,
+  };
+  const validMultipleProductPayload = {
+    productCategory: 'TVs',
+    productBrand: 'Insignia',
+    priceFrom: 160,
+    priceTo: 200,
+  };
+  test('Test for successful response from the server for valid single product insert payload', (done) => {
     const request = {
       method: 'POST',
       url: '/api/v1/products/add/',
+      payload: validSingleProductPayload,
     };
     server.inject(request, (response) => {
       expect(response.result.statusCode).toBe(201);
+      expect(response.result.action).toMatch('Product added');
+      expect(response.result.added).toMatch('4822001;');
+      done();
+    });
+  });
+  test('Test for successful response from the server for invalid product insert payload', (done) => {
+    const request = {
+      method: 'POST',
+      url: '/api/v1/products/add/',
+      payload: invalidProductPayload,
+    };
+    server.inject(request, (response) => {
+      expect(response.result.statusCode).toBe(404);
+      expect(response.result.action).toMatch('No product added');
+      expect(response.result.added).toMatch(';');
+      done();
+    });
+  });
+  test('Test for successful response from the server for valid multiple product insert payload', (done) => {
+    const request = {
+      method: 'POST',
+      url: '/api/v1/products/add/',
+      payload: validMultipleProductPayload,
+    };
+    server.inject(request, (response) => {
+      expect(response.result.statusCode).toBe(201);
+      expect(response.result.action).toMatch('Product added');
+      expect(response.result.added).toMatch('1213167;4807511;4822001;');
       done();
     });
   });
