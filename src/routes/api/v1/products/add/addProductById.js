@@ -1,7 +1,5 @@
 const getProductByID = require('../getProductById');
-const Models = require('../../../../../../models/');
-
-const insertProductIntoDatabase = productObject => Models.ProductDetails.create(productObject);
+const AddProductsToDB = require('./addProductsToDatabase');
 
 module.exports = [
   {
@@ -9,24 +7,9 @@ module.exports = [
     path: '/api/v1/products/add/{productId}',
     handler: (request, response) => {
       getProductByID(request.params.productId).then((result) => {
-        let productCategory = result.categories;
-        if (productCategory.length === 0) {
-          productCategory = 'undefined';
-        } else {
-          productCategory = productCategory[0].name;
-        }
-        const productObject = {
-          productID: result.id,
-          name: result.name,
-          price: result.price,
-          upc: result.upc,
-          description: result.description,
-          manufacturer: result.manufacturer,
-          model: result.model,
-          image: result.image,
-          category: productCategory,
-        };
-        insertProductIntoDatabase(productObject).then((res) => {
+        const productsArray = [];
+        productsArray[0] = result;
+        AddProductsToDB(productsArray).then(() => {
           response({
             action: 'Product added',
             statusCode: 201,
