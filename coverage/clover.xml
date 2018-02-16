@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1518788343736" clover="3.2.0">
-  <project timestamp="1518788343736" name="All files">
-    <metrics statements="63" coveredstatements="55" conditionals="21" coveredconditionals="10" methods="13" coveredmethods="12" elements="97" coveredelements="77" complexity="0" loc="63" ncloc="63" packages="5" files="9" classes="9">
+<coverage generated="1518788784223" clover="3.2.0">
+  <project timestamp="1518788784223" name="All files">
+    <metrics statements="67" coveredstatements="59" conditionals="21" coveredconditionals="10" methods="13" coveredmethods="12" elements="101" coveredelements="81" complexity="0" loc="67" ncloc="67" packages="5" files="9" classes="9">
       <package name="models">
         <metrics statements="26" coveredstatements="24" conditionals="9" coveredconditionals="6" methods="5" coveredmethods="5"/>
         <file name="index.js" path="/Users/maheshhp/Documents/ShopSocial/models/index.js">
@@ -75,7 +75,7 @@
         </file>
       </package>
       <package name="src.routes.api.v1.products">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <file name="getProductById.js" path="/Users/maheshhp/Documents/ShopSocial/src/routes/api/v1/products/getProductById.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="1" count="3" type="stmt"/>
@@ -85,9 +85,13 @@
           <line num="11" count="3" type="stmt"/>
         </file>
         <file name="getProductsByCategoryAndPrice.js" path="/Users/maheshhp/Documents/ShopSocial/src/routes/api/v1/products/getProductsByCategoryAndPrice.js">
-          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="1" count="1" type="stmt"/>
           <line num="3" count="1" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="5" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
         </file>
       </package>
       <package name="src.routes.api.v1.products.add">

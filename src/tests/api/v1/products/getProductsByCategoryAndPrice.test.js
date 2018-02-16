@@ -57,11 +57,15 @@ describe('Tests for getting product details by category and price from external 
     data: [],
   };
   test('Test for checking return result of getProductsByCategoryAndPrice function for valid product ID', (done) => {
-    expect(getProductsByCategoryAndPrice(validProductParameters)).toEqual(validResponse);
+    getProductsByCategoryAndPrice(validProductParameters).then((responseObject) => {
+      expect(responseObject).toEqual(validResponse);
+    });
     done();
   });
   test('Test for checking return result of getProductsByCategoryAndPrice function for invalid parameters', (done) => {
-    expect(getProductsByCategoryAndPrice(invalidProductParameters)).toEqual(invalidResponse);
+    getProductsByCategoryAndPrice(invalidProductParameters).then((responseObject) => {
+      expect(responseObject).toEqual(invalidResponse);
+    });
     done();
   });
 });
