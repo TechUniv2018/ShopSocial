@@ -77,11 +77,17 @@
         </file>
       </package>
       <package name="src.routes.api.v1.products">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
         <file name="getProductById.js" path="/Users/maheshhp/Documents/ShopSocial/src/routes/api/v1/products/getProductById.js">
-          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
           <line num="1" count="4" type="stmt"/>
-          <line num="6" count="2" type="stmt"/>
+          <line num="3" count="4" type="stmt"/>
+          <line num="15" count="4" type="stmt"/>
+          <line num="20" count="2" type="stmt"/>
+          <line num="25" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="31" count="2" type="stmt"/>
+          <line num="36" count="1" type="stmt"/>
         </file>
       </package>
       <package name="src.routes.api.v1.products.add">
