@@ -32,8 +32,7 @@ describe('Tests for adding multiple product/s to the database from external API'
     };
     server.inject(request, (response) => {
       expect(response.result.statusCode).toBe(201);
-      expect(response.result.action).toMatch('Product/s added');
-      expect(response.result.added).toMatch('4822001;');
+      expect(response.result.action).toMatch('1 added, 0 updated');
       done();
     });
   });
@@ -46,7 +45,6 @@ describe('Tests for adding multiple product/s to the database from external API'
     server.inject(request, (response) => {
       expect(response.result.statusCode).toBe(404);
       expect(response.result.action).toMatch('No product added');
-      expect(response.result.added).toMatch(';');
       done();
     });
   });
@@ -58,8 +56,7 @@ describe('Tests for adding multiple product/s to the database from external API'
     };
     server.inject(request, (response) => {
       expect(response.result.statusCode).toBe(201);
-      expect(response.result.action).toMatch('Product/s added');
-      expect(response.result.added).toMatch('1213167;4807511;4822001;');
+      expect(response.result.action).toMatch('3 added, 0 updated');
       done();
     });
   });
