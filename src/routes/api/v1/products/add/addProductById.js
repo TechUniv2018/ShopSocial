@@ -1,4 +1,4 @@
-const getProductByID = require('../getProductById');
+const getProductByID = require('./getProductById');
 const AddProductsToDB = require('./addProductsToDatabase');
 
 module.exports = [

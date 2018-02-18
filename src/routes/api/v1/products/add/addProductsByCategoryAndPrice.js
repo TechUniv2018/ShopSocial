@@ -1,4 +1,4 @@
-const getProductsByCategoryAndPrice = require('../getProductsByCategoryAndPrice');
+const getProductsByCategoryAndPrice = require('./getProductsByCategoryAndPrice');
 const addProductsToDatabase = require('./addProductsToDatabase');
 
 module.exports = [
