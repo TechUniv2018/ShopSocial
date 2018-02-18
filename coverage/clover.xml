@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1518974292349" clover="3.2.0">
-  <project timestamp="1518974292349" name="All files">
-    <metrics statements="98" coveredstatements="91" conditionals="21" coveredconditionals="11" methods="24" coveredmethods="23" elements="143" coveredelements="125" complexity="0" loc="98" ncloc="98" packages="7" files="14" classes="14">
+<coverage generated="1518974978230" clover="3.2.0">
+  <project timestamp="1518974978230" name="All files">
+    <metrics statements="101" coveredstatements="94" conditionals="21" coveredconditionals="11" methods="24" coveredmethods="23" elements="146" coveredelements="128" complexity="0" loc="101" ncloc="101" packages="8" files="15" classes="15">
       <package name="models">
         <metrics statements="29" coveredstatements="27" conditionals="9" coveredconditionals="6" methods="6" coveredmethods="6"/>
         <file name="index.js" path="/Users/sahilbalodi/Desktop/ShopSocial/models/index.js">
@@ -156,8 +156,17 @@
         </file>
       </package>
       <package name="src.routes.user">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="userRegistration.js" path="/Users/sahilbalodi/Desktop/ShopSocial/src/routes/user/userRegistration.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="4" type="stmt"/>
+          <line num="2" count="4" type="stmt"/>
+          <line num="4" count="4" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.schemes">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="registrationValidation.js" path="/Users/sahilbalodi/Desktop/ShopSocial/src/schemes/registrationValidation.js">
           <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
           <line num="1" count="4" type="stmt"/>
           <line num="3" count="4" type="stmt"/>
