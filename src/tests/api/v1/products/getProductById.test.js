@@ -13,10 +13,11 @@ const validProduct = {
   upc: '041333424019',
 };
 
-afterEach(() => Models.ProductDetails.destroy({ truncate: true }));
-beforeEach(() => {
+beforeEach((done) => {
   Models.ProductDetails.destroy({ truncate: true }).then(() => {
-    Models.ProductDetails.create(validProduct);
+    Models.ProductDetails.upsert(validProduct).then(() => {
+      done();
+    });
   });
 });
 afterAll(() => Models.close());

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1518972963108" clover="3.2.0">
-  <project timestamp="1518972963109" name="All files">
-    <metrics statements="98" coveredstatements="89" conditionals="25" coveredconditionals="13" methods="22" coveredmethods="21" elements="145" coveredelements="123" complexity="0" loc="98" ncloc="98" packages="6" files="13" classes="13">
+<coverage generated="1518975230132" clover="3.2.0">
+  <project timestamp="1518975230132" name="All files">
+    <metrics statements="104" coveredstatements="95" conditionals="27" coveredconditionals="15" methods="25" coveredmethods="24" elements="156" coveredelements="134" complexity="0" loc="104" ncloc="104" packages="6" files="13" classes="13">
       <package name="models">
         <metrics statements="29" coveredstatements="27" conditionals="9" coveredconditionals="6" methods="6" coveredmethods="6"/>
         <file name="index.js" path="/Users/maheshhp/Documents/ShopSocial/models/index.js">
@@ -83,11 +83,17 @@
         </file>
       </package>
       <package name="src.routes.api.v1.products">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
         <file name="getProductById.js" path="/Users/maheshhp/Documents/ShopSocial/src/routes/api/v1/products/getProductById.js">
-          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
           <line num="1" count="4" type="stmt"/>
-          <line num="6" count="2" type="stmt"/>
+          <line num="3" count="4" type="stmt"/>
+          <line num="15" count="4" type="stmt"/>
+          <line num="20" count="2" type="stmt"/>
+          <line num="25" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="31" count="2" type="stmt"/>
+          <line num="36" count="1" type="stmt"/>
         </file>
       </package>
       <package name="src.routes.api.v1.products.add">
