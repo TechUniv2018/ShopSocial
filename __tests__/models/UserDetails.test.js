@@ -1,9 +1,10 @@
 const Models = require('../../models/');
 
 const sampleObject = {
-  UserId: '1234',
-  Name: 'Allen',
-  Email: 'abc@gmail.com',
+  userID: '1234',
+  name: 'Allen',
+  email: 'abc@gmail.com',
+  password: '#2323atfagd',
 };
 
 beforeEach(() => Models.UserDetails.create(sampleObject));
@@ -13,9 +14,10 @@ afterAll(() => Models.close());
 describe('testing validity of UserDetails model', () => {
   it('testing if table returns the inserted sample record', (done) => {
     Models.UserDetails.find().then((result) => {
-      expect(result.Email).toBe(sampleObject.Email);
-      expect(result.Name).toBe(sampleObject.Name);
-      expect(result.UserId).toBe(sampleObject.UserId);
+      expect(result.email).toBe(sampleObject.email);
+      expect(result.name).toBe(sampleObject.name);
+      expect(result.userID).toBe(sampleObject.userID);
+      expect(result.password).toBe(sampleObject.password);
       done();
     });
   });
