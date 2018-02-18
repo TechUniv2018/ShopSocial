@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1518974978230" clover="3.2.0">
-  <project timestamp="1518974978230" name="All files">
-    <metrics statements="101" coveredstatements="94" conditionals="21" coveredconditionals="11" methods="24" coveredmethods="23" elements="146" coveredelements="128" complexity="0" loc="101" ncloc="101" packages="8" files="15" classes="15">
+<coverage generated="1518975675025" clover="3.2.0">
+  <project timestamp="1518975675025" name="All files">
+    <metrics statements="102" coveredstatements="95" conditionals="21" coveredconditionals="11" methods="24" coveredmethods="23" elements="147" coveredelements="129" complexity="0" loc="102" ncloc="102" packages="8" files="15" classes="15">
       <package name="models">
         <metrics statements="29" coveredstatements="27" conditionals="9" coveredconditionals="6" methods="6" coveredmethods="6"/>
         <file name="index.js" path="/Users/sahilbalodi/Desktop/ShopSocial/models/index.js">
@@ -67,15 +67,16 @@
         </file>
       </package>
       <package name="src.handlers">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <file name="registrationHandler.js" path="/Users/sahilbalodi/Desktop/ShopSocial/src/handlers/registrationHandler.js">
-          <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+          <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="1" count="4" type="stmt"/>
-          <line num="4" count="4" type="stmt"/>
-          <line num="5" count="2" type="stmt"/>
-          <line num="12" count="1" type="stmt"/>
-          <line num="14" count="1" type="stmt"/>
-          <line num="17" count="4" type="stmt"/>
+          <line num="2" count="4" type="stmt"/>
+          <line num="5" count="4" type="stmt"/>
+          <line num="6" count="2" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="18" count="4" type="stmt"/>
         </file>
       </package>
       <package name="src.routes">

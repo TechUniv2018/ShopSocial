@@ -1,4 +1,5 @@
 const Models = require('../../models');
+const passwordHash = require('password-hash');
 
 
 const handler = (request, response) => {
@@ -6,7 +7,7 @@ const handler = (request, response) => {
     .create({
       name: request.payload.userName,
       email: request.payload.email,
-      password: request.payload.password,
+      password: passwordHash.generate(request.payload.password),
     })
     .then(() => {
       response('You are registered!').code(201);
