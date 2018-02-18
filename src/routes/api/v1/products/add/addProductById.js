@@ -1,5 +1,5 @@
-const getProductByID = require('../getProductById');
-const AddProductsToDB = require('./addProductsToDatabase');
+const getProductByID = require('./helpers/getProductById');
+const AddProductsToDB = require('./helpers/addProductsToDatabase');
 
 module.exports = [
   {
