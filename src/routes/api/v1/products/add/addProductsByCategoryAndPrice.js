@@ -8,21 +8,25 @@ module.exports = [
     handler: (request, response) => {
       getProductsByCategoryAndPrice(request.payload).then((remoteFetchResponse) => {
         addProductsToDatabase(remoteFetchResponse.data).then((dbInsertResponse) => {
-          let addedIDs = '';
+          console.log(dbInsertResponse);
+          let addedCount = 0;
+          let updatedCount = 0;
           dbInsertResponse.forEach((insertedValue) => {
-            addedIDs += `${insertedValue.dataValues.productID};`;
+            if (insertedValue) {
+              addedCount += 1;
+            } else {
+              updatedCount += 1;
+            }
           });
           response({
             statusCode: 201,
-            action: 'Product/s added',
-            added: addedIDs,
+            action: `${addedCount} added, ${updatedCount} updated`,
           });
         });
       }).catch(() => {
         response({
           statusCode: 404,
           action: 'No product added',
-          added: ';',
         });
       });
     },

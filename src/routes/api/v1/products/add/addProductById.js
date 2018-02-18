@@ -9,11 +9,18 @@ module.exports = [
       getProductByID(request.params.productId).then((result) => {
         const productsArray = [];
         productsArray[0] = result;
-        AddProductsToDB(productsArray).then(() => {
-          response({
-            action: 'Product added',
-            statusCode: 201,
-          });
+        AddProductsToDB(productsArray).then((action) => {
+          if (action[0]) {
+            response({
+              action: 'Product added',
+              statusCode: 201,
+            });
+          } else {
+            response({
+              action: 'Product updated',
+              statusCode: 201,
+            });
+          }
         });
       }).catch((error) => {
         response({
