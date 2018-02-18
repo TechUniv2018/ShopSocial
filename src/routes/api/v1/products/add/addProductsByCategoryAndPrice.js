@@ -1,5 +1,5 @@
-const getProductsByCategoryAndPrice = require('../getProductsByCategoryAndPrice');
-const addProductsToDatabase = require('./addProductsToDatabase');
+const getProductsByCategoryAndPrice = require('./helpers/getProductsByCategoryAndPrice');
+const addProductsToDatabase = require('./helpers/addProductsToDatabase');
 
 module.exports = [
   {

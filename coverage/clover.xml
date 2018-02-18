@@ -44,64 +44,53 @@
         <metrics statements="14" coveredstatements="9" conditionals="10" coveredconditionals="3" methods="1" coveredmethods="0"/>
         <file name="server.js" path="/Users/maheshhp/Documents/ShopSocial/src/server.js">
           <metrics statements="14" coveredstatements="9" conditionals="10" coveredconditionals="3" methods="1" coveredmethods="0"/>
-          <line num="1" count="3" type="stmt"/>
-          <line num="2" count="3" type="stmt"/>
-          <line num="4" count="3" type="stmt"/>
-          <line num="7" count="3" type="cond" truecount="1" falsecount="1"/>
-          <line num="8" count="3" type="cond" truecount="1" falsecount="1"/>
+          <line num="1" count="4" type="stmt"/>
+          <line num="2" count="4" type="stmt"/>
+          <line num="4" count="4" type="stmt"/>
+          <line num="7" count="4" type="cond" truecount="1" falsecount="1"/>
+          <line num="8" count="4" type="cond" truecount="1" falsecount="1"/>
           <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="13" count="3" type="stmt"/>
-          <line num="18" count="3" type="stmt"/>
-          <line num="20" count="3" type="cond" truecount="1" falsecount="1"/>
+          <line num="13" count="4" type="stmt"/>
+          <line num="18" count="4" type="stmt"/>
+          <line num="20" count="4" type="cond" truecount="1" falsecount="1"/>
           <line num="21" count="0" type="stmt"/>
           <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="23" count="0" type="stmt"/>
           <line num="25" count="0" type="stmt"/>
-          <line num="29" count="3" type="stmt"/>
+          <line num="29" count="4" type="stmt"/>
         </file>
       </package>
       <package name="src.routes">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <file name="getRequest.js" path="/Users/maheshhp/Documents/ShopSocial/src/routes/getRequest.js">
           <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="1" count="3" type="stmt"/>
+          <line num="1" count="4" type="stmt"/>
           <line num="6" count="1" type="stmt"/>
         </file>
         <file name="index.js" path="/Users/maheshhp/Documents/ShopSocial/src/routes/index.js">
-          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="1" count="3" type="stmt"/>
-          <line num="2" count="3" type="stmt"/>
-          <line num="3" count="3" type="stmt"/>
-          <line num="5" count="3" type="stmt"/>
+          <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="4" type="stmt"/>
+          <line num="2" count="4" type="stmt"/>
+          <line num="3" count="4" type="stmt"/>
+          <line num="4" count="4" type="stmt"/>
+          <line num="6" count="4" type="stmt"/>
         </file>
       </package>
       <package name="src.routes.api.v1.products">
-        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <file name="getProductById.js" path="/Users/maheshhp/Documents/ShopSocial/src/routes/api/v1/products/getProductById.js">
-          <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="1" count="4" type="stmt"/>
-          <line num="3" count="4" type="stmt"/>
-          <line num="4" count="5" type="stmt"/>
-          <line num="8" count="5" type="stmt"/>
-          <line num="11" count="4" type="stmt"/>
-        </file>
-        <file name="getProductsByCategoryAndPrice.js" path="/Users/maheshhp/Documents/ShopSocial/src/routes/api/v1/products/getProductsByCategoryAndPrice.js">
-          <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="1" count="4" type="stmt"/>
-          <line num="3" count="4" type="stmt"/>
-          <line num="4" count="5" type="stmt"/>
-          <line num="5" count="5" type="stmt"/>
-          <line num="9" count="5" type="stmt"/>
-          <line num="12" count="4" type="stmt"/>
+          <line num="6" count="2" type="stmt"/>
         </file>
       </package>
       <package name="src.routes.api.v1.products.add">
-        <metrics statements="35" coveredstatements="33" conditionals="6" coveredconditionals="4" methods="11" coveredmethods="11"/>
+        <metrics statements="25" coveredstatements="23" conditionals="4" coveredconditionals="2" methods="9" coveredmethods="9"/>
         <file name="addProductById.js" path="/Users/maheshhp/Documents/ShopSocial/src/routes/api/v1/products/add/addProductById.js">
           <metrics statements="11" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="4"/>
-          <line num="1" count="3" type="stmt"/>
-          <line num="2" count="3" type="stmt"/>
-          <line num="4" count="3" type="stmt"/>
+          <line num="1" count="4" type="stmt"/>
+          <line num="2" count="4" type="stmt"/>
+          <line num="4" count="4" type="stmt"/>
           <line num="9" count="3" type="stmt"/>
           <line num="10" count="2" type="stmt"/>
           <line num="11" count="2" type="stmt"/>
@@ -113,9 +102,9 @@
         </file>
         <file name="addProductsByCategoryAndPrice.js" path="/Users/maheshhp/Documents/ShopSocial/src/routes/api/v1/products/add/addProductsByCategoryAndPrice.js">
           <metrics statements="14" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="5"/>
-          <line num="1" count="3" type="stmt"/>
-          <line num="2" count="3" type="stmt"/>
-          <line num="4" count="3" type="stmt"/>
+          <line num="1" count="4" type="stmt"/>
+          <line num="2" count="4" type="stmt"/>
+          <line num="4" count="4" type="stmt"/>
           <line num="9" count="3" type="stmt"/>
           <line num="10" count="3" type="stmt"/>
           <line num="11" count="2" type="stmt"/>
@@ -128,10 +117,13 @@
           <line num="21" count="2" type="stmt"/>
           <line num="27" count="1" type="stmt"/>
         </file>
-        <file name="addProductsToDatabase.js" path="/Users/maheshhp/Documents/ShopSocial/src/routes/api/v1/products/add/addProductsToDatabase.js">
+      </package>
+      <package name="src.routes.api.v1.products.add.helpers">
+        <metrics statements="21" coveredstatements="21" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+        <file name="addProductsToDatabase.js" path="/Users/maheshhp/Documents/ShopSocial/src/routes/api/v1/products/add/helpers/addProductsToDatabase.js">
           <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-          <line num="1" count="4" type="stmt"/>
-          <line num="3" count="4" type="stmt"/>
+          <line num="1" count="5" type="stmt"/>
+          <line num="3" count="5" type="stmt"/>
           <line num="4" count="7" type="stmt"/>
           <line num="5" count="7" type="cond" truecount="2" falsecount="0"/>
           <line num="6" count="1" type="stmt"/>
@@ -139,7 +131,24 @@
           <line num="9" count="9" type="stmt"/>
           <line num="20" count="9" type="stmt"/>
           <line num="22" count="6" type="stmt"/>
-          <line num="25" count="4" type="stmt"/>
+          <line num="25" count="5" type="stmt"/>
+        </file>
+        <file name="getProductById.js" path="/Users/maheshhp/Documents/ShopSocial/src/routes/api/v1/products/add/helpers/getProductById.js">
+          <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="1" count="5" type="stmt"/>
+          <line num="3" count="5" type="stmt"/>
+          <line num="4" count="5" type="stmt"/>
+          <line num="8" count="5" type="stmt"/>
+          <line num="11" count="5" type="stmt"/>
+        </file>
+        <file name="getProductsByCategoryAndPrice.js" path="/Users/maheshhp/Documents/ShopSocial/src/routes/api/v1/products/add/helpers/getProductsByCategoryAndPrice.js">
+          <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="1" count="5" type="stmt"/>
+          <line num="3" count="5" type="stmt"/>
+          <line num="4" count="5" type="stmt"/>
+          <line num="5" count="5" type="stmt"/>
+          <line num="9" count="5" type="stmt"/>
+          <line num="12" count="5" type="stmt"/>
         </file>
       </package>
     </metrics>
