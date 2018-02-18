@@ -1,7 +1,10 @@
 
 module.exports = (sequelize, DataTypes) => {
   const OrderDetails = sequelize.define('OrderDetails', {
-    OrderID: DataTypes.STRING,
+    OrderID: {
+      primaryKey: true,
+      type: DataTypes.STRING,
+    },
     UserIDs: DataTypes.ARRAY(DataTypes.STRING),
     ProductIDs: DataTypes.ARRAY(DataTypes.INTEGER),
     ProductPrices: DataTypes.ARRAY(DataTypes.FLOAT),
