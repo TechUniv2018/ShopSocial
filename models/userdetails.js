@@ -1,12 +1,16 @@
 
 module.exports = (sequelize, DataTypes) => {
   const UserDetails = sequelize.define('UserDetails', {
-    UserId: {
+    userID: {
       type: DataTypes.STRING,
       primaryKey: true,
     },
-    Name: DataTypes.STRING,
-    Email: DataTypes.STRING,
+    name: DataTypes.STRING,
+    password: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      unique: true,
+    },
   }, {
     classMethods: {
       associate() {
