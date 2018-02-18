@@ -1,14 +1,14 @@
 
 module.exports = (sequelize, DataTypes) => {
   const OrderDetails = sequelize.define('OrderDetails', {
-    OrderID: {
+    orderID: {
       primaryKey: true,
       type: DataTypes.STRING,
     },
-    UserIDs: DataTypes.ARRAY(DataTypes.STRING),
-    ProductIDs: DataTypes.ARRAY(DataTypes.INTEGER),
-    ProductPrices: DataTypes.ARRAY(DataTypes.FLOAT),
-    OrderStatus: DataTypes.ENUM('FULFILLED', 'CANCELLED', 'ONGOING'),
+    userIDs: DataTypes.ARRAY(DataTypes.STRING),
+    productIDs: DataTypes.ARRAY(DataTypes.INTEGER),
+    productPrices: DataTypes.ARRAY(DataTypes.FLOAT),
+    orderStatus: DataTypes.ENUM('FULFILLED', 'CANCELLED', 'ONGOING'),
   }, {
     classMethods: {
       associate(models) {

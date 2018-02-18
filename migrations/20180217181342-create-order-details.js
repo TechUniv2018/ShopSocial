@@ -1,24 +1,24 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => queryInterface.createTable('OrderDetails', {
-    OrderID: {
+    orderID: {
       allowNull: false,
       primaryKey: true,
       type: Sequelize.STRING,
     },
-    UserIDs: {
+    userIDs: {
       allowNull: false,
       type: Sequelize.ARRAY(Sequelize.STRING),
     },
-    ProductIDs: {
+    productIDs: {
       allowNull: false,
       type: Sequelize.ARRAY(Sequelize.INTEGER),
     },
-    ProductPrices: {
+    productPrices: {
       allowNull: false,
       type: Sequelize.ARRAY(Sequelize.FLOAT),
     },
-    OrderStatus: {
+    orderStatus: {
       allowNull: false,
       type: Sequelize.ENUM('FULFILLED', 'CANCELLED', 'ONGOING'),
     },
