@@ -11,8 +11,18 @@ const handler = (request, response) => {
     })
     .then(() => {
       response('You are registered!').code(201);
-    }).catch(() => {
-      response('This email belongs to an existing user.').code(409);
+    }).catch((error) => {
+      if (error.message === 'Validation error') {
+        response({
+          message: 'email already belongs to an existing user',
+          statusCode: 409,
+        });
+      } else {
+        response({
+          message: 'server error',
+          statusCode: 503,
+        });
+      }
     });
 };
 module.exports = handler;
