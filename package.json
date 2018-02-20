@@ -29,8 +29,10 @@
   },
   "dependencies": {
     "hapi": "^16.6.2",
+    "joi": "^13.1.2",
+    "password-hash": "^1.2.2",
     "pg": "^6.4.2",
-    "sequelize": "^4.33.4",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "sequelize": "^4.33.4"
   }
 }
