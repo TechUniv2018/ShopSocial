@@ -31,4 +31,14 @@ describe('Testing route removeProductById', () => {
       done();
     });
   });
+  it('Testing the method with DELETE method', (done) => {
+    const request = {
+      method: 'DELETE',
+      url: '/api/v1/products/remove/1234',
+    };
+    Server.inject(request, (response) => {
+      expect(response.result.statusCode).toBe(200);
+      done();
+    });
+  });
 });
