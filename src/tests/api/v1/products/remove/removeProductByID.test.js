@@ -2,6 +2,9 @@ const Server = require('../../../../../server');
 const Models = require('../../../../../../models');
 const insertIntoProductDB = require('../../../../../routes/api/v1/products/add/addProductsToDatabase');
 
+beforeEach(() => Models.ProductDetails.destroy({ truncate: true }));
+afterEach(() => Models.ProductDetails.destroy({ truncate: true }));
+afterAll(() => Models.close());
 
 describe('Testing route removeProductById', () => {
   it('Testing the validity of route with ID', (done) => {
