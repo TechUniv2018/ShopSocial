@@ -2,6 +2,7 @@ const Server = require('../../../../../server');
 const Models = require('../../../../../../models');
 const insertIntoProductDB = require('../../../../../routes/api/v1/products/add/addProductsToDatabase');
 
+
 describe('Testing route removeProductById', () => {
   it('Testing the validity of route with ID', (done) => {
     const request = {
@@ -93,6 +94,16 @@ describe('Testing functionality of route removeProductById', () => {
       });
     }).catch((err) => {
       console.log(err);
+      done();
+    });
+  });
+  it('Testing the method with absent productId in the db', (done) => {
+    const request = {
+      method: 'DELETE',
+      url: '/api/v1/products/remove/1234',
+    };
+    Server.inject(request, (response) => {
+      expect(response.result.statusCode).toBe(204);
       done();
     });
   });

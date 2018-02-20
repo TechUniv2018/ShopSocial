@@ -34,7 +34,7 @@ module.exports = [
         });
       }).catch((error) => {
         response({
-          message: error.error.name,
+          message: error,
           statusCode: 204,
         });
       });
