@@ -23,7 +23,7 @@ beforeEach((done) => {
 afterAll(() => Models.close());
 
 
-describe('Tests for fetching product to the database from external API', () => {
+describe('Tests for fetching product details from internal DB using an internal API', () => {
   test('Test for successful response with product details on a valid request', (done) => {
     const request = {
       method: 'GET',
