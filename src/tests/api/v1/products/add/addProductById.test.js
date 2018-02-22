@@ -23,7 +23,7 @@ describe('Tests for adding product/s to the database from external API', () => {
       url: '/api/v1/products/add/9132294',
     };
     server.inject(request, (response) => {
-      expect(response.result.action).toMatch('Product added');
+      expect(response.result.action).toBe('Product added');
       done();
     });
   });
@@ -33,7 +33,7 @@ describe('Tests for adding product/s to the database from external API', () => {
       url: '/api/v1/products/add/1234',
     };
     server.inject(request, (response) => {
-      expect(response.result.action).toMatch('NotFound');
+      expect(response.result.action).toBe('NotFound');
       done();
     });
   });
