@@ -1,24 +1,50 @@
-const getProductByID = require('../../../../../routes/api/v1/products/add/getProductById');
+const server = require('../../../../server');
+const Models = require('../../../../../models/');
 
-describe('Tests for getting product details by ID from external API', () => {
-  test('Test for checking return result of getProductById function for valid product ID', (done) => {
-    getProductByID(9132294).then((result) => {
-      expect(result.upc).toBe('086792895093');
+const validProduct = {
+  productID: 43900,
+  price: 5.49,
+  name: 'Duracell - AAA Batteries (4-Pack)',
+  description: 'Compatible with select electronic devices; AAA size; DURALOCK Power Preserve technology; 4-pack',
+  manufacturer: 'Duracell',
+  model: 'MN2400B4Z',
+  category: 'Alkaline Batteries',
+  image: 'http://img.bbystatic.com/BestBuy_US/images/products/4390/43900_sa.jpg',
+  upc: '041333424019',
+};
+
+beforeEach((done) => {
+  Models.ProductDetails.destroy({ truncate: true }).then(() => {
+    Models.ProductDetails.upsert(validProduct).then(() => {
       done();
     });
   });
-  test('Test for checking return result of getProductById function for invalid product ID', (done) => {
-    const responseObject = {
-      name: 'NotFound',
-      message: "No record found for id '1234'",
-      code: 404,
-      className: 'not-found',
-      errors: {},
+});
+afterAll(() => Models.close());
+
+
+describe('Tests for fetching product details from internal DB using an internal API', () => {
+  test('Test for successful response with product details on a valid request', (done) => {
+    const request = {
+      method: 'GET',
+      url: '/api/v1/products/43900',
     };
-    getProductByID(1234).then()
-      .catch((error) => {
-        expect(error.error).toEqual(responseObject);
-        done();
+    server.inject(request, (response) => {
+      expect(response.result.data).toEqual(validProduct);
+      done();
+    });
+  });
+  test('Test for error response on request with non existent ID', (done) => {
+    const request = {
+      method: 'GET',
+      url: '/api/v1/products/9132294',
+    };
+    server.inject(request, (response) => {
+      expect(response.result).toEqual({
+        error: 'Product not found',
+        statusCode: 404,
       });
+      done();
+    });
   });
 });
