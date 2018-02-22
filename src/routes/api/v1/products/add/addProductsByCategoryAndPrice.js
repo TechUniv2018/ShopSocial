@@ -8,7 +8,7 @@ module.exports = [
     method: 'POST',
     path: '/api/v1/products/add/',
     handler: (request, response) => {
-      getProductsByCategoryAndPrice(JSON.parse(JSON.stringify(request.payload)))
+      getProductsByCategoryAndPrice(JSON.parse((request.payload)))
         .then((remoteFetchResponse) => {
           addProductsToDatabase(remoteFetchResponse.data).then((dbInsertResponse) => {
             let addedCount = 0;
