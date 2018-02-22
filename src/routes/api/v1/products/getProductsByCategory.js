@@ -15,24 +15,31 @@ const queryResultDecomposer = queryResult => ({
 module.exports = [
   {
     method: 'GET',
-    path: '/api/v1/products/{productId}',
+    path: '/api/v1/products/category/{productCategory}',
     handler: (request, response) => {
       Models.ProductDetails.findAll({
         where: {
-          productID: request.params.productId,
+          category: request.params.productCategory,
         },
       }).then((queryResult) => {
+        console.log(queryResult);
         if (queryResult.length === 0) {
           response({
             statusCode: 404,
-            error: 'Product not found',
+            error: 'Product/s not found',
+          });
+        } else {
+          const decomposedQueryResult = [];
+          queryResult.forEach((productObject) => {
+            decomposedQueryResult.push(queryResultDecomposer(productObject));
+          });
+          response({
+            statusCode: 200,
+            data: decomposedQueryResult,
           });
         }
-        response({
-          statusCode: 200,
-          data: queryResultDecomposer(queryResult[0]),
-        });
       }).catch((queryError) => {
+        console.log(queryError);
         response({
           statusCode: 404,
           error: 'Error',

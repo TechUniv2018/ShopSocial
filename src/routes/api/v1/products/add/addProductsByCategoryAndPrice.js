@@ -1,30 +1,36 @@
-const getProductsByCategoryAndPrice = require('./getProductsByCategoryAndPrice');
-const addProductsToDatabase = require('./addProductsToDatabase');
+
+const getProductsByCategoryAndPrice = require('./helpers/getProductsByCategoryAndPrice');
+const addProductsToDatabase = require('./helpers/addProductsToDatabase');
+
 
 module.exports = [
   {
     method: 'POST',
     path: '/api/v1/products/add/',
     handler: (request, response) => {
-      getProductsByCategoryAndPrice(request.payload).then((remoteFetchResponse) => {
-        addProductsToDatabase(remoteFetchResponse.data).then((dbInsertResponse) => {
-          let addedIDs = '';
-          dbInsertResponse.forEach((insertedValue) => {
-            addedIDs += `${insertedValue.dataValues.productID};`;
+      getProductsByCategoryAndPrice(JSON.parse((request.payload)))
+        .then((remoteFetchResponse) => {
+          addProductsToDatabase(remoteFetchResponse.data).then((dbInsertResponse) => {
+            let addedCount = 0;
+            let updatedCount = 0;
+            dbInsertResponse.forEach((insertedValue) => {
+              if (insertedValue) {
+                addedCount += 1;
+              } else {
+                updatedCount += 1;
+              }
+            });
+            response({
+              statusCode: 201,
+              action: `${addedCount} added, ${updatedCount} updated`,
+            });
           });
+        }).catch(() => {
           response({
-            statusCode: 201,
-            action: 'Product/s added',
-            added: addedIDs,
+            statusCode: 404,
+            action: 'No product added',
           });
         });
-      }).catch(() => {
-        response({
-          statusCode: 404,
-          action: 'No product added',
-          added: ';',
-        });
-      });
     },
   },
 ];
