@@ -4,8 +4,8 @@
   "description": "### Problem statement",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test sequelize db:migrate:undo:all && NODE_ENV=test sequelize db:migrate && jest --coverage --forceExit",
-    "start": "NODE_ENV=test sequelize db:migrate:undo:all && NODE_ENV=test sequelize db:migrate && node server.js"
+    "test": "NODE_ENV=test sequelize db:migrate:undo:all && NODE_ENV=test sequelize db:migrate && NODE_ENV=test jest --coverage --forceExit",
+    "start": "NODE_ENV=development sequelize db:migrate:undo:all && NODE_ENV=development sequelize db:migrate && NDOE_ENV=development node server.js"
   },
   "repository": {
     "type": "git",
