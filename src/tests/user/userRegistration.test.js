@@ -22,6 +22,7 @@ describe('Test server for POST /user/register: ', () => {
       expect(response.result.statusCode).toBe(201);
       done();
     });
+    
   }); test('Should return statusCode 409: same email registration error', (done) => {
     const options = {
       url: 'localhost:8080/user/register',
@@ -34,6 +35,7 @@ describe('Test server for POST /user/register: ', () => {
     };
     Server.inject(options, (response) => {
       expect(response.result.statusCode).toBe(409);
+
       done();
     });
   });
