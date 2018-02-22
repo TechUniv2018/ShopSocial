@@ -9,6 +9,5 @@ module.exports = [].concat(
   addProductById,
   addProductsByCategoryAndPrice,
   removeProductByID,
-  userRegistration
+  userRegistration,
 );
-

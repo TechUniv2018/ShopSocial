@@ -10,7 +10,10 @@ const handler = (request, response) => {
       password: passwordHash.generate(request.payload.password),
     })
     .then(() => {
-      response('You are registered!').code(201);
+      response({
+        message: 'You are registered!',
+        statusCode: 201,
+      });
     }).catch((error) => {
       if (error.message === 'Validation error') {
         response({
