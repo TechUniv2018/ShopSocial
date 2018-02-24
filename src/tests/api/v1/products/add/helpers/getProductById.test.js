@@ -1,9 +1,9 @@
-const getProductByID = require('../../../../../routes/api/v1/products/add/getProductById');
+const getProductByID = require('../../../../../../routes/api/v1/products/add/helpers/getProductById');
 
 describe('Tests for getting product details by ID from external API', () => {
   test('Test for checking return result of getProductById function for valid product ID', (done) => {
     getProductByID(9132294).then((result) => {
-      expect(result.upc).toBe('086792895093');
+      expect(result.upc).toMatch('086792895093');
       done();
     });
   });

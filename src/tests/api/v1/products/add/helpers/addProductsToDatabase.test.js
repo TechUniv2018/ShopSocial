@@ -1,5 +1,5 @@
-const AddProductsToDB = require('../../../../../routes/api/v1/products/add/addProductsToDatabase');
-const Models = require('../../../../../../models/');
+const AddProductsToDB = require('../../../../../../routes/api/v1/products/add/helpers/addProductsToDatabase');
+const Models = require('../../../../../../../models/');
 const { Op } = require('sequelize');
 
 beforeEach(() => Models.ProductDetails.destroy({ truncate: true }));

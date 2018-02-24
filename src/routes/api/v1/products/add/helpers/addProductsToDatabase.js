@@ -1,4 +1,4 @@
-const Models = require('../../../../../../models/');
+const Models = require('../../../../../../../models/');
 
 const addProductsToDB = (productsArray) => {
   const dbInsertArray = [];
@@ -17,7 +17,7 @@ const addProductsToDB = (productsArray) => {
       image: product.image,
       category: product.categories[0].name,
     };
-    dbInsertArray.push(Models.ProductDetails.create(productObject));
+    dbInsertArray.push(Models.ProductDetails.upsert(productObject));
   });
   return Promise.all(dbInsertArray);
 };
