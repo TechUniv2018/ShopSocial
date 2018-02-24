@@ -4,12 +4,14 @@ const addProductsByCategoryAndPrice = require('./api/v1/products/add/addProducts
 const getProductById = require('./api/v1/products/getProductById');
 const getProductsByCategory = require('./api/v1/products/getProductsByCategory');
 const userRegistration = require('./user/userRegistration');
+const removeProductByID = require('./api/v1/products/remove/removeProductByID');
 
 module.exports = [].concat(
   getRequest,
   addProductById,
   addProductsByCategoryAndPrice,
+  removeProductByID,
+  userRegistration,
   getProductById,
   getProductsByCategory,
-  userRegistration
 );

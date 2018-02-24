@@ -8,7 +8,7 @@ describe('Test server for POST /user/register: ', () => {
       done();
     });
   });
-  test('Should return statusCode 201: ', (done) => {
+  test('Should return statusCode 201: Successful user registration ', (done) => {
     const options = {
       url: 'localhost:8080/user/register',
       method: 'POST',
@@ -19,10 +19,11 @@ describe('Test server for POST /user/register: ', () => {
       },
     };
     Server.inject(options, (response) => {
-      expect(response.statusCode).toBe(201);
+      expect(response.result.statusCode).toBe(201);
       done();
     });
-  }); test('Should return statusCode 409: ', (done) => {
+    
+  }); test('Should return statusCode 409: same email registration error', (done) => {
     const options = {
       url: 'localhost:8080/user/register',
       method: 'POST',
@@ -33,22 +34,8 @@ describe('Test server for POST /user/register: ', () => {
       },
     };
     Server.inject(options, (response) => {
-      expect(response.statusCode).toBe(409);
-      done();
-    });
-  });
-  test('Should return statusCode 404: ', (done) => {
-    const options = {
-      url: 'localhost:8080/user/registered',
-      method: 'POST',
-      payload: {
-        email: 'sahilbalodi@gmail.com',
-        userName: 'sahil',
-        password: 'P@q$$1rd',
-      },
-    };
-    Server.inject(options, (response) => {
-      expect(response.statusCode).toBe(404);
+      expect(response.result.statusCode).toBe(409);
+
       done();
     });
   });
@@ -63,7 +50,7 @@ describe('Test server for POST /user/register: ', () => {
       },
     };
     Server.inject(options, (response) => {
-      expect(response.statusCode).toBe(400);
+      expect(response.result.statusCode).toBe(400);
       done();
     });
   });
@@ -78,7 +65,7 @@ describe('Test server for POST /user/register: ', () => {
       },
     };
     Server.inject(options, (response) => {
-      expect(response.statusCode).toBe(400);
+      expect(response.result.statusCode).toBe(400);
       done();
     });
   });
