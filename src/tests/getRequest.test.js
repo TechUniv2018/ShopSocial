@@ -1,14 +1,11 @@
 const server = require('../server');
+const supertest = require('supertest');
 
-describe('Hapi server test', () => {
-  test('Test for successful GET ping', (done) => {
-    const request = {
-      method: 'GET',
-      url: '/',
-    };
-    server.inject(request, (response) => {
-      expect(response.result).toMatch('hello');
+test('Test for successful GET ping', (done) => {
+  supertest(server.listener)
+    .get('/')
+    .then((response) => {
+      expect(response.statusCode).toBe(200);
       done();
     });
-  });
 });
