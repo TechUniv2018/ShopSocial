@@ -1,4 +1,4 @@
-const getProductsByCategoryAndPrice = require('../../../../../routes/api/v1/products/add/getProductsByCategoryAndPrice');
+const getProductsByCategoryAndPrice = require('../../../../../../routes/api/v1/products/add/helpers/getProductsByCategoryAndPrice');
 
 describe('Tests for getting product details by category and price from external API', () => {
   const validProductParameters = {
