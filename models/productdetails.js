@@ -15,7 +15,10 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate(models) {
-        // associations can be defined here
+        ProductDetails.hasMany(models.CartWProducts, {
+          foreignKey: 'productID',
+          onDelete: 'CASCADE',
+        });
       },
     },
   });
