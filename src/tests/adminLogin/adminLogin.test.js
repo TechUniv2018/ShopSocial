@@ -31,4 +31,19 @@ describe('Test server for POST /admin/login: ', () => {
       done();
     });
   });
+  test('Should return statusCode 401: invalid login credentials , admin with following credentials doesnt exist', (done) => {
+    const options = {
+      url: '/admin/login',
+      method: 'POST',
+      payload: {
+        email: 'sahilbalodi@gmail.com',
+        password: 'P@q$$1rd',
+      },
+    };
+    Server.inject(options, (response) => {
+      expect(response.result.statusCode).toBe(401);
+
+      done();
+    });
+  });
 });
