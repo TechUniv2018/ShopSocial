@@ -1,4 +1,4 @@
-const findAdmin = require('../routes/admin/helper/findAdmin');
+const findAdmin = require('../routes/admin/helper/verifyAdmin');
 const JWT = require('jsonwebtoken');
 const secret = require('../routes/admin/helper/secretKey');
 
