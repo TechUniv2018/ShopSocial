@@ -6,6 +6,7 @@ module.exports = [
     method: 'DELETE',
     path: '/api/v1/products/remove/{productId?}',
     config: {
+      auth: false,
       validate: {
         params: {
           productId: Joi.number().positive().min(0).precision(0)
