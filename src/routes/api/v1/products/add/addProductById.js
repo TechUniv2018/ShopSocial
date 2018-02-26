@@ -5,6 +5,7 @@ module.exports = [
   {
     method: 'GET',
     path: '/api/v1/products/add/{productId}',
+    config: { auth: false },
     handler: (request, response) => {
       getProductByID(request.params.productId).then((result) => {
         const productsArray = [];

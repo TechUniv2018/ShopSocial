@@ -10,7 +10,7 @@ describe('Test server for POST /user/register: ', () => {
   });
   test('Should return statusCode 201: Successful user registration ', (done) => {
     const options = {
-      url: 'localhost:8080/user/register',
+      url: '/user/register',
       method: 'POST',
       payload: {
         email: 'sahilbalodi@gmail.com',
@@ -22,10 +22,9 @@ describe('Test server for POST /user/register: ', () => {
       expect(response.result.statusCode).toBe(201);
       done();
     });
-    
   }); test('Should return statusCode 409: same email registration error', (done) => {
     const options = {
-      url: 'localhost:8080/user/register',
+      url: '/user/register',
       method: 'POST',
       payload: {
         email: 'sahilbalodi@gmail.com',
@@ -41,7 +40,7 @@ describe('Test server for POST /user/register: ', () => {
   });
   test('JOI validation - Should return statusCode 400: since invalid password in passed ', (done) => {
     const options = {
-      url: 'localhost:8080/user/register',
+      url: '/user/register',
       method: 'POST',
       payload: {
         email: 'rahulsharma@gmail.com',
@@ -56,7 +55,7 @@ describe('Test server for POST /user/register: ', () => {
   });
   test('JOI validation - Should return statusCode 400: since invalid username in passed ', (done) => {
     const options = {
-      url: 'localhost:8080/user/register',
+      url: '/user/register',
       method: 'POST',
       payload: {
         email: 'rahulsharma@gmail.com',

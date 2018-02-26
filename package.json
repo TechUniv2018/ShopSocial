@@ -29,10 +29,13 @@
   },
   "dependencies": {
     "hapi": "^16.6.2",
+    "hapi-auth-jwt2": "^7.4.1",
     "joi": "^13.1.2",
+    "jsonwebtoken": "^8.1.1",
     "password-hash": "^1.2.2",
     "pg": "^6.4.2",
     "request-promise": "^4.2.2",
-    "sequelize": "^4.33.4"
+    "sequelize": "^4.33.4",
+    "supertest": "^3.0.0"
   }
 }

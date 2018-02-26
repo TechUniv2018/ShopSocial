@@ -5,6 +5,7 @@ module.exports = [
   {
     method: 'POST',
     path: '/api/v1/products/add/',
+    config: { auth: false },
     handler: (request, response) => {
       getProductsByCategoryAndPrice(request.payload).then((remoteFetchResponse) => {
         addProductsToDatabase(remoteFetchResponse.data).then((dbInsertResponse) => {
