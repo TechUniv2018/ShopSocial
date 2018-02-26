@@ -33,19 +33,19 @@ describe('Testing the CartsWProducts table:', () => {
     const createProduct = Models.ProductDetails.create(sampleProduct);
     const createCart = Models.CartsWSessions.create(sampleCart);
     Promise.all([createUser, createProduct, createCart])
-      .then(() => Models.CartsWSessions.findOne().then((result) => {
+      .then((results) => {
         Models.CartsWProducts.create({
-          cartID: result.cartID,
+          cartID: results[2].dataValues.cartID,
           productID: sampleProduct.productID,
-          addedByUser: 1,
+          addedByUser: results[0].dataValues.id,
         }).then(() => {
           Models.CartsWProducts.findOne().then((resultCart) => {
             expect(resultCart.productID).toBe(43900);
             expect(resultCart.addedByUser).toBe(1);
-            expect(resultCart.cartID).toBe(result.cartID);
+            expect(resultCart.cartID).toBe(results[2].dataValues.cartID);
             done();
           });
         });
-      }));
+      });
   });
 });

@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate(models) {
         UserDetails.hasMany(models.CartWProducts, {
-          foreignKey: 'productID',
+          foreignKey: 'addedByUser',
           onDelete: 'CASCADE',
         });
       },

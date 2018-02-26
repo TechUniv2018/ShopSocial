@@ -13,7 +13,7 @@ const sampleObject = {
 };
 
 beforeEach(() => Models.ProductDetails.create(sampleObject));
-afterEach(() => Models.ProductDetails.destroy({ truncate: true }));
+afterEach(() => Models.ProductDetails.destroy({ truncate: true, cascade: true }));
 afterAll(() => Models.close());
 
 describe('Testing validity of ProductDetails model', () => {

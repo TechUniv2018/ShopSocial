@@ -1,6 +1,6 @@
 const Models = require('../../models/');
 
-afterEach(() => Models.CartsWSessions.destroy({ truncate: true }));
+afterEach(() => Models.CartsWSessions.destroy({ truncate: true, cascade: true }));
 afterAll(() => Models.close());
 
 describe('Testing the  CartsWSessions table:', () => {

@@ -1,6 +1,6 @@
 const Models = require('../../models/');
 
-afterEach(() => Models.UserDetails.destroy({ truncate: true }));
+afterEach(() => Models.UserDetails.destroy({ truncate: true, cascade: true }));
 afterAll(() => Models.close());
 
 describe('Testing the UserDetails model', () => {
