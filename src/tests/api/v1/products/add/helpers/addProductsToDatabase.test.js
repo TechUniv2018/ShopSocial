@@ -2,8 +2,8 @@ const AddProductsToDB = require('../../../../../../routes/api/v1/products/add/he
 const Models = require('../../../../../../../models/');
 const { Op } = require('sequelize');
 
-beforeEach(() => Models.ProductDetails.destroy({ truncate: true }));
-afterEach(() => Models.ProductDetails.destroy({ truncate: true }));
+beforeEach(() => Models.ProductDetails.destroy({ truncate: true, cascade: true }));
+afterEach(() => Models.ProductDetails.destroy({ truncate: true, cascade: true }));
 afterAll(() => Models.close());
 
 describe('Tests for adding product/s to the database using the addProductsToDB helper function', () => {

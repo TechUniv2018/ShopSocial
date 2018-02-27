@@ -1,5 +1,10 @@
 const Models = require('../../models/');
 
+beforeEach(() => {
+  Models.UserDetails.destroy({ truncate: true, cascade: true });
+  Models.ProductDetails.destroy({ truncate: true, cascade: true });
+  Models.CartsWSessions.destroy({ truncate: true, cascade: true });
+});
 afterEach(() => {
   Models.UserDetails.destroy({ truncate: true, cascade: true });
   Models.ProductDetails.destroy({ truncate: true, cascade: true });
@@ -38,13 +43,11 @@ describe('Testing the CartsWProducts table:', () => {
           cartID: results[2].dataValues.cartID,
           productID: sampleProduct.productID,
           addedByUser: results[0].dataValues.id,
-        }).then(() => {
-          Models.CartsWProducts.findOne().then((resultCart) => {
-            expect(resultCart.productID).toBe(43900);
-            expect(resultCart.addedByUser).toBe(1);
-            expect(resultCart.cartID).toBe(results[2].dataValues.cartID);
-            done();
-          });
+        }).then((resultCart) => {
+          expect(resultCart.productID).toBe(43900);
+          expect(resultCart.addedByUser).toBe(results[0].dataValues.id);
+          expect(resultCart.cartID).toBe(results[2].dataValues.cartID);
+          done();
         });
       });
   });

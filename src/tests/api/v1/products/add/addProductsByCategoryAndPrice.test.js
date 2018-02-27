@@ -1,8 +1,8 @@
 const server = require('../../../../../server');
 const Models = require('../../../../../../models/');
 
-afterEach(() => Models.ProductDetails.destroy({ truncate: true }));
-beforeEach(() => Models.ProductDetails.destroy({ truncate: true }));
+afterEach(() => Models.ProductDetails.destroy({ truncate: true, cascade: true }));
+beforeEach(() => Models.ProductDetails.destroy({ truncate: true, cascade: true }));
 afterAll(() => Models.close());
 
 describe('Tests for adding multiple product/s to the database from external API', () => {

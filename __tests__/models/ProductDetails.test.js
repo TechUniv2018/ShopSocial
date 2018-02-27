@@ -12,13 +12,13 @@ const sampleObject = {
   category: 'Alkaline Batteries',
 };
 
-beforeEach(() => Models.ProductDetails.create(sampleObject));
+beforeEach(() => Models.ProductDetails.destroy({ truncate: true, cascade: true }));
 afterEach(() => Models.ProductDetails.destroy({ truncate: true, cascade: true }));
 afterAll(() => Models.close());
 
 describe('Testing validity of ProductDetails model', () => {
   it('testing if table returns the inserted sample record with all keys intact', (done) => {
-    Models.ProductDetails.find().then((result) => {
+    Models.ProductDetails.create(sampleObject).then((result) => {
       expect(result.productID).toBe(sampleObject.productID);
       expect(result.name).toBe(sampleObject.name);
       expect(result.price).toBe(sampleObject.price);

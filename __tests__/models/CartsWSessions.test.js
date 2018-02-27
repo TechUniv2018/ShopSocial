@@ -1,5 +1,6 @@
 const Models = require('../../models/');
 
+beforeEach(() => Models.CartsWSessions.destroy({ truncate: true, cascade: true }));
 afterEach(() => Models.CartsWSessions.destroy({ truncate: true, cascade: true }));
 afterAll(() => Models.close());
 

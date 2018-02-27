@@ -3,7 +3,7 @@ const Models = require('../../../models');
 
 describe('Test server for POST /user/register: ', () => {
   beforeAll((done) => {
-    Models.UserDetails.destroy({ truncate: true }).then(() => {
+    Models.UserDetails.destroy({ truncate: true, cascade: true }).then(() => {
       console.log('table cleared');
       done();
     });
@@ -22,7 +22,6 @@ describe('Test server for POST /user/register: ', () => {
       expect(response.result.statusCode).toBe(201);
       done();
     });
-    
   }); test('Should return statusCode 409: same email registration error', (done) => {
     const options = {
       url: 'localhost:8080/user/register',

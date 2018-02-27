@@ -35,8 +35,8 @@ const productsInDb = [{
   upc: '600603198120',
 }];
 
-beforeEach((done) => {
-  Models.ProductDetails.destroy({ truncate: true }).then(() => {
+beforeAll((done) => {
+  Models.ProductDetails.destroy({ truncate: true, cascade: true }).then(() => {
     const validMultipleProductPayload = {
       productCategory: 'TVs',
       productBrand: 'Insignia',
@@ -54,7 +54,7 @@ beforeEach((done) => {
   });
 });
 afterAll(() => {
-  Models.ProductDetails.destroy({ truncate: true }).then(() => {
+  Models.ProductDetails.destroy({ truncate: true, cascade: true }).then(() => {
     Models.close();
   });
 });

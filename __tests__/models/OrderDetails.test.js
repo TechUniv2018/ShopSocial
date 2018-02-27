@@ -1,5 +1,6 @@
 const Models = require('../../models/');
 
+beforeEach(() => Models.OrderDetails.destroy({ truncate: true }));
 afterEach(() => Models.OrderDetails.destroy({ truncate: true }));
 afterAll(() => Models.close());
 
