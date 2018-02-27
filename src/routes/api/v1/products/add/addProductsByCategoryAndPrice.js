@@ -5,6 +5,7 @@ module.exports = [
   {
     method: 'POST',
     path: '/api/v1/products/add/',
+    config: { auth: false },
     handler: (request, response) => {
       getProductsByCategoryAndPrice(JSON.parse(JSON.stringify(request.payload)))
         .then((remoteFetchResponse) => {

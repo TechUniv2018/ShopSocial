@@ -5,13 +5,16 @@ const getProductById = require('./api/v1/products/getProductById');
 const getProductsByCategory = require('./api/v1/products/getProductsByCategory');
 const userRegistration = require('./user/userRegistration');
 const removeProductByID = require('./api/v1/products/remove/removeProductByID');
+const adminLoginRoute = require('./admin/adminLoginRoute');
 
-module.exports = [].concat(
-  getRequest,
+const routes = [].concat(
   addProductById,
   addProductsByCategoryAndPrice,
   removeProductByID,
   userRegistration,
+  adminLoginRoute,
+  getRequest,
   getProductById,
   getProductsByCategory,
 );
+module.exports = routes;
