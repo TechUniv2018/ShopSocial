@@ -9,8 +9,11 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     classMethods: {
-      associate() {
-        // associations can be defined here
+      associate(models) {
+        UserDetails.hasMany(models.CartWProducts, {
+          foreignKey: 'addedByUser',
+          onDelete: 'CASCADE',
+        });
       },
     },
   });

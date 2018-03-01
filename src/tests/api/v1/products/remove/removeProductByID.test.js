@@ -2,8 +2,8 @@ const Server = require('../../../../../server');
 const Models = require('../../../../../../models');
 const insertIntoProductDB = require('../../../../../routes/api/v1/products/add/helpers/addProductsToDatabase');
 
-beforeEach(() => Models.ProductDetails.destroy({ truncate: true }));
-afterEach(() => Models.ProductDetails.destroy({ truncate: true }));
+beforeEach(() => Models.ProductDetails.destroy({ truncate: true, cascade: true }));
+afterEach(() => Models.ProductDetails.destroy({ truncate: true, cascade: true }));
 afterAll(() => Models.close());
 
 describe('Testing route removeProductById', () => {

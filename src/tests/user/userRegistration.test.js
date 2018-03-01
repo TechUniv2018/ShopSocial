@@ -3,7 +3,7 @@ const Models = require('../../../models');
 
 describe('Test server for POST /user/register: ', () => {
   beforeAll((done) => {
-    Models.UserDetails.destroy({ truncate: true }).then(() => {
+    Models.UserDetails.destroy({ truncate: true, cascade: true }).then(() => {
       console.log('table cleared');
       done();
     });
