@@ -27,4 +27,16 @@ describe('Testing the  CartsWSessions table:', () => {
       });
     });
   });
+  it('[OPTIONAL]Testing an object with a valid sessionID and a valid userID', (done) => {
+    Models.CartsWSessions.create({
+      userID: 123,
+      sessionID: '456',
+    }).then(() => {
+      Models.CartsWSessions.findOne().then((result) => {
+        expect(result.sessionID).toBe('456');
+        expect(result.userID).toBe(123);
+        done();
+      });
+    });
+  });
 });
