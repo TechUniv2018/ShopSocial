@@ -13,13 +13,13 @@ module.exports = [
     handler: (request, response) => {
       getProductsInCartHelper(request.params.cartId).then((result) => {
         response({
-          products: result,
+          message: result,
           statusCode: 200,
         }).code(200);
       }).catch((error) => {
         response({
-          action: error.error.name,
-          statusCode: error.error.code,
+          message: error.message,
+          statusCode: error.code,
         }).code(404);
       });
     },
