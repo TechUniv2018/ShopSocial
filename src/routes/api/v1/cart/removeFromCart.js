@@ -6,6 +6,8 @@ const removeProductFromCartHelper = require('./helpers/removeProductFromCartHelp
 // Returns 1 if product was removed
 // Returns 0 if product was not in the cart
 // Request type delete
+// Returns object with key statusCode, message(delete result) and header code
+
 module.exports = [
   {
     method: 'DELETE',
@@ -14,12 +16,12 @@ module.exports = [
     handler: (request, response) => {
       removeProductFromCartHelper((request)).then(() => {
         response({
-          products: 'Product removed from Cart',
+          message: 'Product removed from Cart',
           statusCode: 200,
         }).code(201);
       }).catch((error) => {
         response({
-          action: error.message,
+         message: error.message,
           statusCode: error.error.code,
         }).code(404);
       });
