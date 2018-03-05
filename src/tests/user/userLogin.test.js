@@ -45,4 +45,18 @@ describe('Test server for POST /user/login: ', () => {
       done();
     });
   });
+  test('JOI validation - Should return statusCode 400: since invalid password/email id in passed ', (done) => {
+    const options = {
+      url: '/user/login',
+      method: 'POST',
+      payload: {
+        email: 'abc@gmail.com',
+        password: 'Prd',
+      },
+    };
+    Server.inject(options, (response) => {
+      expect(response.result.statusCode).toBe(400);
+      done();
+    });
+  });
 });
