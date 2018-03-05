@@ -31,4 +31,18 @@ describe('Test server for POST /user/login: ', () => {
       done();
     });
   });
+  test('Should return statusCode 401: invalid login credentials , user with following credentials doesnt exist', (done) => {
+    const options = {
+      url: '/user/login',
+      method: 'POST',
+      payload: {
+        email: 'sahilbalodi@gmail.com',
+        password: 'S@q$$1rd',
+      },
+    };
+    Server.inject(options, (response) => {
+      expect(response.result.statusCode).toBe(401);
+      done();
+    });
+  });
 });
