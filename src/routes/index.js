@@ -7,6 +7,7 @@ const userRegistration = require('./user/userRegistration');
 const removeProductByID = require('./api/v1/products/remove/removeProductByID');
 const adminLoginRoute = require('./admin/adminLoginRoute');
 const userLoginRoute = require('./user/userLoginRoute');
+const userLogout = require('./user/userLogout');
 
 const routes = [].concat(
   addProductById,
@@ -18,5 +19,6 @@ const routes = [].concat(
   getProductById,
   getProductsByCategory,
   userLoginRoute,
+  userLogout,
 );
 module.exports = routes;
