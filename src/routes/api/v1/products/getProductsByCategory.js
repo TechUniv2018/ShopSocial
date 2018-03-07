@@ -20,12 +20,16 @@ module.exports = [
       auth: false,
     },
     handler: (request, response) => {
+      const fromPrice = request.query.fromPrice ? request.query.fromPrice : 0;
+      const toPrice = request.query.toPrice ? request.query.toPrice : 1000000;
       Models.ProductDetails.findAll({
         where: {
           category: request.params.productCategory,
+          price: {
+            $between: [fromPrice, toPrice],
+          },
         },
       }).then((queryResult) => {
-        console.log(queryResult);
         if (queryResult.length === 0) {
           response({
             statusCode: 404,
