@@ -16,6 +16,9 @@ module.exports = [
   {
     method: 'GET',
     path: '/api/v1/products/{productId}',
+    config: {
+      auth: false,
+    },
     handler: (request, response) => {
       Models.ProductDetails.findAll({
         where: {

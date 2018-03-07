@@ -61,13 +61,23 @@ afterAll(() => {
 
 
 describe('Tests for fetching product details sorted by category from internal DB using an internal API', () => {
-  test('Test for successful response with existing product category in the DB', (done) => {
+  test('Test for successful response with existing product category in the DB with no price range specified', (done) => {
     const request = {
       method: 'GET',
       url: '/api/v1/products/category/TV & Home Theater',
     };
     server.inject(request, (response) => {
       expect(response.result.data).toEqual(productsInDb);
+      done();
+    });
+  });
+  test('Test for successful response with existing product category in the DB within a certain price range', (done) => {
+    const request = {
+      method: 'GET',
+      url: '/api/v1/products/category/TV & Home Theater?fromPrice=165&toPrice=175',
+    };
+    server.inject(request, (response) => {
+      expect(response.result.data[0]).toEqual(productsInDb[2]);
       done();
     });
   });
