@@ -29,6 +29,7 @@
     "jest": "^22.2.2"
   },
   "dependencies": {
+    "es6-promise": "^4.2.4",
     "hapi": "^16.6.2",
     "hapi-auth-jwt2": "^7.4.1",
     "joi": "^13.1.2",

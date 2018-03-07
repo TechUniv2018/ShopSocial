@@ -9,6 +9,14 @@ const adminLoginRoute = require('./admin/adminLoginRoute');
 const userLoginRoute = require('./user/userLoginRoute');
 const userLogout = require('./user/userLogout');
 const adminLogout = require('./admin/adminLogout');
+const addProductToCart = require('./api/v1/cart/addProductToCart');
+const adduserIdToCart = require('./api/v1/cart/adduserIdToCart');
+const cartLoginInit = require('./api/v1/cart/cartLoginInit');
+const cartTogetherSessionInit = require('./api/v1/cart/cartTogetherSessionInit');
+const destroyTogetherCart = require('./api/v1/cart/destroyTogetherCart');
+const fetchCart = require('./api/v1/cart/fetchCart');
+const removeFromCart = require('./api/v1/cart/removeFromCart');
+
 
 const routes = [].concat(
   addProductById,
@@ -19,6 +27,13 @@ const routes = [].concat(
   getRequest,
   getProductById,
   getProductsByCategory,
+  addProductToCart,
+  adduserIdToCart,
+  cartLoginInit,
+  cartTogetherSessionInit,
+  destroyTogetherCart,
+  fetchCart,
+  removeFromCart,
   userLoginRoute,
   userLogout,
   adminLogout,
