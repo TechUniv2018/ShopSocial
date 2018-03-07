@@ -2,8 +2,9 @@ const Hapi = require('hapi');
 const routes = require('./routes');
 const Jwt = require('hapi-auth-jwt2');
 const secret = require('./routes/admin/helper/secretKey');
-const validate = require('./routes/admin/helper/verifyAdmin');
 
+
+const validate = () => {};
 const server = new Hapi.Server();
 let portNo;
 
