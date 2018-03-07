@@ -18,7 +18,7 @@ module.exports = [
       }).catch((error) => {
         response({
           message: error.message,
-          statusCode: error.code,
+          statusCode: 404,
         }).code(404);
       });
     },

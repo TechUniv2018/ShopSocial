@@ -11,7 +11,7 @@ const addProductsToCartHelper = require('./helpers/addProductsToCartHelper');
 module.exports = [
   {
     method: 'POST',
-    path: '/api/v1/cart/addToCart/',
+    path: '/api/v1/cart/addToCart',
     config: { auth: false },
     handler: (request, response) => {
       addProductsToCartHelper(request).then((result) => {

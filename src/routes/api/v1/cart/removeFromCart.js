@@ -11,18 +11,20 @@ const removeProductFromCartHelper = require('./helpers/removeProductFromCartHelp
 module.exports = [
   {
     method: 'DELETE',
-    path: '/api/v1/cart/removeFromCart/',
+    path: '/api/v1/cart/removeFromCart',
     config: { auth: false },
     handler: (request, response) => {
-      removeProductFromCartHelper((request)).then(() => {
+      removeProductFromCartHelper((request)).then((result) => {
         response({
-          message: 'Product removed from Cart',
+          // message: 'Product removed from Cart',
+          message: result,
+
           statusCode: 200,
-        }).code(201);
+        }).code(200);
       }).catch((error) => {
         response({
-         message: error.message,
-          statusCode: error.error.code,
+          message: error.message,
+          statusCode: error.code,
         }).code(404);
       });
     },
