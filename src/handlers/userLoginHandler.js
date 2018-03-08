@@ -33,6 +33,9 @@ module.exports = (request, response) => {
           };
           response({
             message: 'User verified ',
+            email: request.payload.email,
+            cartID: cartDetail.cartID,
+            name: UserDetail.name,
             statusCode: 200,
           }).header('Authorization', token).state('token', token, cookieOptions);
         });
