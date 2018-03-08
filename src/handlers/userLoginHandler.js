@@ -15,10 +15,10 @@ module.exports = (request, response) => {
           where: {
             userID: UserDetail.id,
           },
-        }).then((CartDetail) => {
+        }).then((cartDetail) => {
           const obj = {
             email: request.payload.email,
-            cartID: CartDetail.cartID,
+            cartID: cartDetail.cartID,
             name: UserDetail.name,
           };
           const token = JWT.sign(obj, secret);
@@ -32,7 +32,7 @@ module.exports = (request, response) => {
             path: '/',
           };
           response({
-            message: 'user Verified ',
+            message: 'User verified ',
             statusCode: 200,
           }).header('Authorization', token).state('token', token, cookieOptions);
         });
