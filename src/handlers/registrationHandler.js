@@ -5,7 +5,7 @@ const passwordHash = require('password-hash');
 const handler = (request, response) => {
   Models.UserDetails
     .create({
-      name: request.payload.userName,
+      name: request.payload.name,
       email: request.payload.email,
       password: passwordHash.generate(request.payload.password),
     })
@@ -17,12 +17,12 @@ const handler = (request, response) => {
     }).catch((error) => {
       if (error.message === 'Validation error') {
         response({
-          message: 'email already belongs to an existing user',
+          message: 'Email already belongs to an existing user',
           statusCode: 409,
         });
       } else {
         response({
-          message: 'server error',
+          message: 'Server error',
           statusCode: 503,
         });
       }

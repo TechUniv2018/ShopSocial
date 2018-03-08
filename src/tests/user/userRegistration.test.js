@@ -4,7 +4,6 @@ const Models = require('../../../models');
 describe('Test server for POST /user/register: ', () => {
   beforeAll((done) => {
     Models.UserDetails.destroy({ truncate: true, cascade: true }).then(() => {
-      console.log('table cleared');
       done();
     });
   });
@@ -14,7 +13,7 @@ describe('Test server for POST /user/register: ', () => {
       method: 'POST',
       payload: {
         email: 'sahilbalodi@gmail.com',
-        userName: 'sahil',
+        name: 'sahil',
         password: 'P@q$$1rd',
       },
     };
@@ -28,13 +27,12 @@ describe('Test server for POST /user/register: ', () => {
       method: 'POST',
       payload: {
         email: 'sahilbalodi@gmail.com',
-        userName: 'sahil',
+        name: 'sahil',
         password: 'P@q$$1rd',
       },
     };
     Server.inject(options, (response) => {
       expect(response.result.statusCode).toBe(409);
-
       done();
     });
   });
@@ -44,7 +42,7 @@ describe('Test server for POST /user/register: ', () => {
       method: 'POST',
       payload: {
         email: 'rahulsharma@gmail.com',
-        userName: 'rahulsharma',
+        name: 'rahulsharma',
         password: 'Prd',
       },
     };
@@ -59,7 +57,7 @@ describe('Test server for POST /user/register: ', () => {
       method: 'POST',
       payload: {
         email: 'rahulsharma@gmail.com',
-        userName: 'abc',
+        name: 'abc',
         password: 'Prd',
       },
     };
