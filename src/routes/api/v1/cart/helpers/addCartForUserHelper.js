@@ -6,7 +6,6 @@ const addCartForUserHelper = (userId) => {
     sessionID: null,
     userID: userId,
   };
-  // console.log('hello');
   const addCartId = Models.CartsWSessions.create(CartObj);
   return addCartId;
 };

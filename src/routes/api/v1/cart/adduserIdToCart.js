@@ -11,7 +11,6 @@ module.exports = [
     path: '/api/v1/cart/userCart/{userId}',
     config: { auth: false },
     handler: (request, response) => {
-      // console.log('hjh');
       addCartForUserHelper(request.params.userId).then((result) => {
         response({
           message: result,
