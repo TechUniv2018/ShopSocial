@@ -1,10 +1,13 @@
 const rp = require('request-promise');
-const addProductsToDb = require('../src/routes/api/v1/products/add/helpers/addProductsToDatabase');
+const Models = require('../models');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
     const categoriesArray = [
-      'https://shop-social-product-api.herokuapp.com/products?category.name=TV%20%26%20Home%20Theater',
+      'http://shop-social-product-api.herokuapp.com/products?category.id=abcat0101000',
+      'http://shop-social-product-api.herokuapp.com/products?category.id=abcat0102000',
+      'http://shop-social-product-api.herokuapp.com/products?category.id=abcat0106000',
+      'http://shop-social-product-api.herokuapp.com/products?category.id=abcat0200000',
     ];
     const promiseArray = [];
     const dbInsertArray = [];
@@ -32,9 +35,14 @@ module.exports = {
             createdAt: new Date(),
             updatedAt: new Date(),
           };
-          dbInsertArray.push(productObject);
+          insertToDbPromises.push(Models.ProductDetails.findCreateFind({
+            where: {
+              productID: product.id,
+            },
+          }, {
+            defaults: productObject,
+          }));
         });
-        insertToDbPromises.push(queryInterface.bulkInsert('ProductDetails', dbInsertArray));
       });
       return Promise.all(insertToDbPromises);
     });
