@@ -10,7 +10,6 @@ module.exports = {
       'http://shop-social-product-api.herokuapp.com/products?$limit=25&category.id=abcat0200000',
     ];
     const promiseArray = [];
-    const dbInsertArray = [];
     categoriesArray.forEach((categoryUri) => {
       const options = {
         uri: categoryUri,
@@ -22,7 +21,7 @@ module.exports = {
       const insertToDbPromises = [];
       apiResponse.forEach((productArray) => {
         productArray.data.forEach((product) => {
-          const productObject = {
+          insertToDbPromises.push(Models.ProductDetails.create({
             productID: product.id,
             name: product.name,
             price: product.price,
@@ -32,15 +31,6 @@ module.exports = {
             model: product.model,
             image: product.image,
             category: product.categories[0].name,
-            createdAt: new Date(),
-            updatedAt: new Date(),
-          };
-          insertToDbPromises.push(Models.ProductDetails.findCreateFind({
-            where: {
-              productID: product.id,
-            },
-          }, {
-            defaults: productObject,
           }));
         });
       });
