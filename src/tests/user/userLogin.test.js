@@ -4,17 +4,43 @@ const passwordHash = require('password-hash');
 
 describe('Test server for POST /user/login: ', () => {
   beforeAll((done) => {
-    Models.UserDetails.create({
-      email: 'user@gmail.com',
-      password: passwordHash.generate('Sahil@1234'),
-      name: 'user1',
+    Models.UserDetails.destroy({
+      truncate: true,
+      cascade: true,
+      restartIdentity: true,
     }).then(() => {
-      done();
+      Models.UserDetails.destroy({
+        truncate: true,
+        cascade: true,
+        restartIdentity: true,
+      }).then(() => {
+        Models.UserDetails.create({
+          email: 'user@gmail.com',
+          password: passwordHash.generate('Sahil@1234'),
+          name: 'user1',
+        }).then(() => {
+          Models.CartsWSessions.create({
+            userID: 1,
+          }).then(() => {
+            done();
+          });
+        });
+      });
     });
   });
   afterAll((done) => {
-    Models.UserDetails.destroy({ truncate: true, cascade: true }).then(() => {
-      done();
+    Models.UserDetails.destroy({
+      truncate: true,
+      cascade: true,
+      restartIdentity: true,
+    }).then(() => {
+      Models.UserDetails.destroy({
+        truncate: true,
+        cascade: true,
+        restartIdentity: true,
+      }).then(() => {
+        done();
+      });
     });
   });
   test('Should return statusCode 200: Successful user login ', (done) => {
