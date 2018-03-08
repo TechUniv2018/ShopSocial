@@ -4,10 +4,10 @@ const Models = require('../models');
 module.exports = {
   up: (queryInterface, Sequelize) => {
     const categoriesArray = [
-      'http://shop-social-product-api.herokuapp.com/products?category.id=abcat0101000',
-      'http://shop-social-product-api.herokuapp.com/products?category.id=abcat0102000',
-      'http://shop-social-product-api.herokuapp.com/products?category.id=abcat0106000',
-      'http://shop-social-product-api.herokuapp.com/products?category.id=abcat0200000',
+      'http://shop-social-product-api.herokuapp.com/products?$limit=25&category.id=abcat0101000',
+      'http://shop-social-product-api.herokuapp.com/products?$limit=25&category.id=abcat0102000',
+      'http://shop-social-product-api.herokuapp.com/products?$limit=25&category.id=abcat0106000',
+      'http://shop-social-product-api.herokuapp.com/products?$limit=25&category.id=abcat0200000',
     ];
     const promiseArray = [];
     const dbInsertArray = [];
