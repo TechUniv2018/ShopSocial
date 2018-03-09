@@ -17,7 +17,6 @@ module.exports = (request, response) => {
           },
         }).then((cartDetail) => {
           const obj = {
-            userID: UserDetail.id,
             email: request.payload.email,
             cartID: cartDetail.cartID,
             name: UserDetail.name,
@@ -33,6 +32,7 @@ module.exports = (request, response) => {
             path: '/',
           };
           response({
+            userID: UserDetail.id,
             message: 'User verified ',
             email: request.payload.email,
             cartID: cartDetail.cartID,
