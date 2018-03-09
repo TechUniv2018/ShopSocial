@@ -32,6 +32,7 @@ module.exports = (request, response) => {
             path: '/',
           };
           response({
+            userID: UserDetail.id,
             message: 'User verified ',
             email: request.payload.email,
             cartID: cartDetail.cartID,
