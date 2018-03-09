@@ -9,7 +9,7 @@ const server = new Hapi.Server();
 let portNo;
 
 if (process.env.NODE_ENV) {
-  portNo = process.env.NODE_ENV.toString().toLowerCase() === 'development' ? 3000 : 9000;
+  portNo = process.env.NODE_ENV.toString().toLowerCase() === 'development' ? 8080 : 9000;
 } else {
   portNo = process.env.PORT || 8080;
 }
