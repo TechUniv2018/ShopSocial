@@ -1,28 +1,19 @@
 const Models = require('../../../../../../models/');
 
-require('es6-promise');
-
 const addProductsToCartHelper = (requestfromurl) => {
-//   const cartId = requestfromurl.cartId;
-//   const productId = requestfromurl.productId;
-  // const { cartId, productId, userId } = requestfromurl;
   const cartId = JSON.parse(JSON.stringify(requestfromurl.payload.cartId));
   const productId = JSON.parse(JSON.stringify(requestfromurl.payload.productId));
   const userId = JSON.parse(JSON.stringify(requestfromurl.payload.userId));
-  console.log(cartId);
-  console.log(productId);
-  console.log(userId);
-  // console.log(requestfromurl);
   const promiseinserttocart = new Promise((resolve, reject) => {
     Models.CartsWProducts.findAll({
       where: {
         cartID: cartId,
         productID: productId,
       },
-    }).then((searchres) => {
-      console.log('len', searchres);
-      console.log('len', searchres.length);
-      if (searchres.length === 0) {
+    }).then((searchResponse) => {
+      console.log('len', searchResponse);
+      console.log('len', searchResponse.length);
+      if (searchResponse.length === 0) {
         const productObj = {
           cartID: cartId,
           productID: productId,
@@ -30,7 +21,6 @@ const addProductsToCartHelper = (requestfromurl) => {
         };
 
         Models.CartsWProducts.create(productObj).then(() => {
-          console.log('ddd');
           resolve('Product Added to Cart');
         }).catch((err) => {
           reject(err);
@@ -47,4 +37,3 @@ const addProductsToCartHelper = (requestfromurl) => {
 };
 
 module.exports = addProductsToCartHelper;
-

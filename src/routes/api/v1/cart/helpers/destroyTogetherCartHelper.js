@@ -1,5 +1,3 @@
-
-
 const Models = require('../../../../../../models/');
 
 const destroyTogetherCartHelper = (sessionId) => {

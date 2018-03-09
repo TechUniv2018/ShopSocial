@@ -3,38 +3,63 @@ const Models = require('../../../models');
 
 describe('Test server for POST /user/register: ', () => {
   beforeAll((done) => {
-    Models.UserDetails.destroy({ truncate: true, cascade: true }).then(() => {
-      console.log('table cleared');
-      done();
-    });
+    Models.UserDetails.destroy({
+      truncate: true,
+      cascade: true,
+      restartIdentity: true,
+    }).then(() =>
+      Models.CartsWSessions.destroy({
+        truncate: true,
+        cascade: true,
+        restartIdentity: true,
+      }).then(() =>
+        done()));
   });
+
+  afterAll((done) => {
+    Models.UserDetails.destroy({
+      truncate: true,
+      cascade: true,
+      restartIdentity: true,
+    }).then(() =>
+      Models.CartsWSessions.destroy({
+        truncate: true,
+        cascade: true,
+        restartIdentity: true,
+      }).then(() =>
+        done()));
+  });
+
   test('Should return statusCode 201: Successful user registration ', (done) => {
     const options = {
       url: '/user/register',
       method: 'POST',
       payload: {
         email: 'sahilbalodi@gmail.com',
-        userName: 'sahil',
+        name: 'sahil',
         password: 'P@q$$1rd',
       },
     };
     Server.inject(options, (response) => {
       expect(response.result.statusCode).toBe(201);
-      done();
+      Models.CartsWSessions.findAll().then((cartDetail) => {
+        expect(cartDetail.length).toBe(1);
+        done();
+      });
     });
-  }); test('Should return statusCode 409: same email registration error', (done) => {
+  });
+  test('Should return statusCode 409: same email registration error', (done) => {
     const options = {
       url: '/user/register',
       method: 'POST',
       payload: {
         email: 'sahilbalodi@gmail.com',
-        userName: 'sahil',
+        name: 'sahil',
         password: 'P@q$$1rd',
       },
     };
     Server.inject(options, (response) => {
       expect(response.result.statusCode).toBe(409);
-
       done();
     });
   });
@@ -44,7 +69,7 @@ describe('Test server for POST /user/register: ', () => {
       method: 'POST',
       payload: {
         email: 'rahulsharma@gmail.com',
-        userName: 'rahulsharma',
+        name: 'rahulsharma',
         password: 'Prd',
       },
     };
@@ -59,7 +84,7 @@ describe('Test server for POST /user/register: ', () => {
       method: 'POST',
       payload: {
         email: 'rahulsharma@gmail.com',
-        userName: 'abc',
+        name: 'abc',
         password: 'Prd',
       },
     };

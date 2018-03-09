@@ -1,5 +1,4 @@
 const Models = require('../../../../../../models/');
-require('es6-promise');
 
 const addProductsToCartHelper = (sessionId) => {
   console.log(sessionId);
@@ -11,8 +10,6 @@ const addProductsToCartHelper = (sessionId) => {
     };
     Models.CartsWSessions.findOrCreate({ where: sessionObj }).spread((cart, created) => {
       const res = cart.get({ plain: true });
-      // console.log(res);
-      // console.log(res.cartID);
       resolve(res.cartID);
     }).catch((err) => { reject(err); });
   });
@@ -20,4 +17,3 @@ const addProductsToCartHelper = (sessionId) => {
 };
 
 module.exports = addProductsToCartHelper;
-
