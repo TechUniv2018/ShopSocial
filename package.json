@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test sequelize db:migrate:undo:all && NODE_ENV=test sequelize db:migrate && NODE_ENV=test jest --coverage --forceExit --runInBand",
-    "start": "NODE_ENV=development sequelize db:migrate:undo:all && NODE_ENV=development sequelize db:migrate && NODE_ENV=development sequelize db:seed:all && NODE_ENV=development node src/server.js",
+    "start": "NODE_ENV=development sequelize db:migrate:undo:all && NODE_ENV=development sequelize db:migrate  && NODE_ENV=development node src/server.js",
     "seed": "NODE_ENV=development sequelize db:seed:undo:all && NODE_ENV=development sequelize db:seed:all"
   },
   "repository": {

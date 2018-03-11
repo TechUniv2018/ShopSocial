@@ -58,11 +58,23 @@ server.register(Jwt, (err) => {
 
   io.on('connection', (socket) => {
     console.log('connected');
-    socket.on('connectTogether', (color) => {
+    socket.on('connectTogether', (reqobj) => {
       // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
       // we make use of the socket.emit method again with the argument given to use from the callback function above
-      console.log('Color Changed to: ', color);
-      // io.sockets.emit('change color', color)
+      console.log('Together request: ', reqobj);
+      io.sockets.emit('relayConnectTogether', reqobj);
+    });
+    socket.on('connectTogetherResponse', (reqobj) => {
+      // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
+      // we make use of the socket.emit method again with the argument given to use from the callback function above
+      console.log('Together Request Response: ', reqobj);
+      io.sockets.emit('relayConnectTogetherResponse', reqobj);
+    });
+    socket.on('disconnectTogetherNoti', (reqobj) => {
+      // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
+      // we make use of the socket.emit method again with the argument given to use from the callback function above
+      console.log('Disconnect together notification', reqobj);
+      io.sockets.emit('relaydisconnectTogetherNoti', reqobj);
     });
 
 
