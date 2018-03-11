@@ -3,14 +3,20 @@ const Models = require('../models');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    const categoriesArray = [
+    const categoriesLinkArray = [
       'http://shop-social-product-api.herokuapp.com/products?$limit=25&category.id=abcat0101000',
       'http://shop-social-product-api.herokuapp.com/products?$limit=25&category.id=abcat0102000',
       'http://shop-social-product-api.herokuapp.com/products?$limit=25&category.id=abcat0106000',
       'http://shop-social-product-api.herokuapp.com/products?$limit=25&category.id=abcat0200000',
     ];
+    const categoriesNameArray = [
+      'TVs',
+      'DVD Players',
+      'TV & Home Theater',
+      'Audio',
+    ];
     const promiseArray = [];
-    categoriesArray.forEach((categoryUri) => {
+    categoriesLinkArray.forEach((categoryUri) => {
       const options = {
         uri: categoryUri,
         json: true, // Automatically parses the JSON string in the response
@@ -19,7 +25,9 @@ module.exports = {
     });
     return Promise.all(promiseArray).then((apiResponse) => {
       const insertToDbPromises = [];
+      let categoryCounter = 0;
       apiResponse.forEach((productArray) => {
+        const categoryName = categoriesNameArray[categoryCounter];
         productArray.data.forEach((product) => {
           insertToDbPromises.push(Models.ProductDetails.create({
             productID: product.id,
@@ -30,9 +38,10 @@ module.exports = {
             manufacturer: product.manufacturer,
             model: product.model,
             image: product.image,
-            category: product.categories[0].name,
+            category: categoryName,
           }));
         });
+        categoryCounter += 1;
       });
       return Promise.all(insertToDbPromises);
     });
