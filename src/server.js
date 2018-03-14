@@ -70,6 +70,12 @@ server.register(Jwt, (err) => {
       console.log('Together Request Response: ', reqobj);
       io.sockets.emit('relayConnectTogetherResponse', reqobj);
     });
+    socket.on('mypingrequest', (reqobj) => {
+      // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
+      // we make use of the socket.emit method again with the argument given to use from the callback function above
+      console.log('Together Buddy Online check: ', reqobj);
+      io.sockets.emit('responsePingRequest', reqobj);
+    });
     socket.on('disconnectTogetherNoti', (reqobj) => {
       // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
       // we make use of the socket.emit method again with the argument given to use from the callback function above
