@@ -1,21 +1,21 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "123",
-    "database": "shopsocial_dev",
+    "username": "developer",
+    "password": "null",
+    "database": "database_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "postgres",
-    "password": "123",
-    "database": "shopsocial_test",
+    "username": "tester",
+    "password": "null",
+    "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
     "username": "root",
-    "password": null,
+    "password": "null",
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
