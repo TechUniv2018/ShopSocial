@@ -82,6 +82,14 @@ server.register(Jwt, (err) => {
       console.log('Disconnect together notification', reqobj);
       io.sockets.emit('relaydisconnectTogetherNoti', reqobj);
     });
+    socket.on('urlTogetherchange', (reqobj) => {
+      // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
+      // we make use of the socket.emit method again with the argument given to use from the callback function above
+      console.log('Together change together notification', reqobj);
+      if (reqobj.sEmail !== '' && reqobj.rEmail !== '') {
+        io.sockets.emit('urlTogetherChangeRelay', reqobj);
+      }
+    });
 
 
     // Do all the socket stuff here.
