@@ -67,10 +67,10 @@ server.register(Jwt, (err) => {
       }
     });
     socket.on('scrollTogetherchange', (reqobj) => {
-      console.log('Together scroll change together notification', reqobj);
+      // console.log('Together scroll change together notification', reqobj);
       if (reqobj.sEmail !== '' && reqobj.rEmail !== '') {
         io.sockets.emit('scrollTogetherChangeRelay', reqobj);
-        console.log('scrollchange socket relayed');
+        // console.log('scrollchange socket relayed');
       }
     });
   });
