@@ -16,7 +16,8 @@ const cartTogetherSessionInit = require('./api/v1/cart/cartTogetherSessionInit')
 const destroyTogetherCart = require('./api/v1/cart/destroyTogetherCart');
 const fetchCart = require('./api/v1/cart/fetchCart');
 const removeFromCart = require('./api/v1/cart/removeFromCart');
-
+const getCartContentsOfSession = require('./api/v1/cart/getCartContentsOfSession');
+const segregateCartContentsOfSession = require('./api/v1/cart/segregateCartContentsOfSession');
 
 const routes = [].concat(
   addProductById,
@@ -37,5 +38,7 @@ const routes = [].concat(
   userLoginRoute,
   userLogout,
   adminLogout,
+  getCartContentsOfSession,
+  segregateCartContentsOfSession,
 );
 module.exports = routes;
