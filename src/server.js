@@ -2,7 +2,7 @@ const Hapi = require('hapi');
 const routes = require('./routes');
 const Jwt = require('hapi-auth-jwt2');
 const secret = require('./routes/admin/helper/secretKey');
-const socketIO = require('socket.io');
+const IO = require('socket.io');
 
 const validate = () => {};
 const server = new Hapi.Server();
@@ -39,7 +39,7 @@ server.register(Jwt, (err) => {
   server.auth.default('jwt');
   server.route(routes);
 
-  const io = require('socket.io')(app.listener);
+  const io = IO(app.listener);
 
   io.on('connection', (socket) => {
     console.log('connected');
@@ -67,10 +67,10 @@ server.register(Jwt, (err) => {
       }
     });
     socket.on('scrollTogetherchange', (reqobj) => {
-      // console.log('Together scroll change together notification', reqobj);
+      console.log('Together scroll change together notification', reqobj);
       if (reqobj.sEmail !== '' && reqobj.rEmail !== '') {
         io.sockets.emit('scrollTogetherChangeRelay', reqobj);
-        // console.log('scrollchange socket relayed');
+        console.log('scrollchange socket relayed');
       }
     });
   });
