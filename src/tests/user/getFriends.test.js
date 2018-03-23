@@ -3,7 +3,13 @@ const supertest = require('supertest');
 const Models = require('../../../models');
 
 describe('Test server for GET /friends: ', () => {
-  beforeAll((done) => {
+  beforeEach((done) => {
+    Models.UserFriends.destroy({
+      truncate: true,
+      cascade: true,
+      restartIdentity: true,
+    }).then(() =>
+      done());
     Models.UserFriends.create({
       userId: 1,
       friendsEmail: 'a@gmail.com',
@@ -14,7 +20,7 @@ describe('Test server for GET /friends: ', () => {
       }).then(() => done());
     });
   });
-  afterAll((done) => {
+  afterEach((done) => {
     Models.UserFriends.destroy({
       truncate: true,
       cascade: true,

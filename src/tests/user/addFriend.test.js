@@ -3,7 +3,13 @@ const Models = require('../../../models');
 const passwordHash = require('password-hash');
 
 describe('Test server for post /addFriend: ', () => {
-  beforeAll((done) => {
+  beforeEach((done) => {
+    Models.UserDetails.destroy({
+      truncate: true,
+      cascade: true,
+      restartIdentity: true,
+    }).then(() =>
+      done());
     Models.UserDetails.create({
       email: 'a@gmail.com',
       password: passwordHash.generate('Sahil@1234'),
@@ -16,7 +22,7 @@ describe('Test server for post /addFriend: ', () => {
       }).then(() => done());
     });
   });
-  afterAll((done) => {
+  afterEach((done) => {
     Models.UserDetails.destroy({
       truncate: true,
       cascade: true,
