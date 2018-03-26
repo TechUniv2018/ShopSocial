@@ -20,6 +20,13 @@ module.exports = [
             cartID,
           },
         }).then((resultProducts) => {
+          if (resultProducts.length === 0) {
+            console.log(`length${resultProducts.length}`);
+            response({
+              products: [],
+              statusCode: 200,
+            });
+          }
           const products = [];
           resultProducts.forEach((product, idx) => {
             Models.ProductDetails.findOne({

@@ -20,7 +20,7 @@ module.exports = [
             cartID,
           },
         }).then((resultProducts) => {
-          if (resultProducts === 0) {
+          if (resultProducts.length === 0) {
             response({
               statusCode: 204,
             });
@@ -36,10 +36,10 @@ module.exports = [
               Models.CartsWProducts.create({
                 cartID: resultUser.cartID,
                 productID: product.productID,
-                userID: product.addedByUser,
+                addedByUser: product.addedByUser,
               });
               Models.CartsWProducts.destroy({
-                where: product,
+                where: { id: product.id },
               });
             });
           });
