@@ -51,7 +51,10 @@ const getProductByProductName = (request, response, redisClient) => {
         console.log('Served from cache');
         response({
           statusCode: 200,
-          data: value.map(product => queryResultDecomposer(JSON.parse(product))),
+          data: value.map((product) => {
+            const parsedJSON = JSON.parse(product);
+            return ({ productID: parsedJSON.id, name: parsedJSON.name });
+          }),
         });
       });
     }
