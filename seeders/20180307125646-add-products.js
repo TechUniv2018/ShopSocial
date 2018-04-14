@@ -34,7 +34,8 @@ module.exports = {
       apiResponse.forEach((productArray) => {
         const categoryName = categoriesNameArray[categoryCounter];
         productArray.data.forEach((product) => {
-          redisClient.hset('products', product.name.toString(), JSON.stringify({ ...product, category: categoryName }));
+          redisClient.hset('productName', product.name.toString(), JSON.stringify({ ...product, category: categoryName }));
+          redisClient.hset('productId', product.id, JSON.stringify({ ...product, productID: product.id, category: categoryName }));
           insertToDbPromises.push(Models.ProductDetails.create({
             productID: product.id,
             name: product.name,

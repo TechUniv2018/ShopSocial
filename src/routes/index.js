@@ -29,7 +29,7 @@ const routes = redisClient => [].concat(
   userRegistration,
   adminLoginRoute,
   getRequest,
-  getProductById,
+  getProductById(redisClient),
   getProductsByCategory,
   addProductToCart,
   adduserIdToCart,

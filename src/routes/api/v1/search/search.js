@@ -9,7 +9,7 @@ const queryResultDecomposer = queryResult => ({
 
 const getProductByProductName = (request, response, redisClient) => {
   const requestAllias = request.params.productname;
-  redisClient.hkeys('products', (error, res) => {
+  redisClient.hkeys('productName', (error, res) => {
     const searchKeys = [];
     res.forEach((product) => {
       if (product.includes(requestAllias)) {

@@ -12,7 +12,7 @@ const queryResultDecomposer = queryResult => ({
   upc: queryResult.upc,
 });
 
-module.exports = [
+module.exports = redisClient => [
   {
     method: 'GET',
     path: '/api/v1/products/{productId}',
@@ -20,26 +20,36 @@ module.exports = [
       auth: false,
     },
     handler: (request, response) => {
-      Models.ProductDetails.findAll({
-        where: {
-          productID: request.params.productId,
-        },
-      }).then((queryResult) => {
-        if (queryResult.length === 0) {
+      redisClient.hget('productId', request.params.productId, (error, value) => {
+        if (error || value === null || value === undefined) {
+          Models.ProductDetails.findAll({
+            where: {
+              productID: request.params.productId,
+            },
+          }).then((queryResult) => {
+            if (queryResult.length === 0) {
+              response({
+                statusCode: 404,
+                error: 'Product not found',
+              });
+            }
+            response({
+              statusCode: 200,
+              data: queryResultDecomposer(queryResult[0]),
+            });
+          }).catch((queryError) => {
+            response({
+              statusCode: 404,
+              error: 'Error',
+            });
+          });
+        } else {
+          console.log('Served from cache');
           response({
-            statusCode: 404,
-            error: 'Product not found',
+            statusCode: 200,
+            data: queryResultDecomposer(JSON.parse(value)),
           });
         }
-        response({
-          statusCode: 200,
-          data: queryResultDecomposer(queryResult[0]),
-        });
-      }).catch((queryError) => {
-        response({
-          statusCode: 404,
-          error: 'Error',
-        });
       });
     },
   },
