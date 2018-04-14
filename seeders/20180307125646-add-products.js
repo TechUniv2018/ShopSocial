@@ -1,8 +1,13 @@
 const rp = require('request-promise');
 const Models = require('../models');
+const redis = require('redis');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
+    const redisClient = redis.createClient();
+    redisClient.on('connect', () => {
+      console.log('Connected to redis');
+    });
     const categoriesLinkArray = [
       'http://shop-social-product-api.herokuapp.com/products?$limit=25&category.id=abcat0101000',
       'http://shop-social-product-api.herokuapp.com/products?$limit=25&category.id=abcat0102000',
@@ -29,6 +34,7 @@ module.exports = {
       apiResponse.forEach((productArray) => {
         const categoryName = categoriesNameArray[categoryCounter];
         productArray.data.forEach((product) => {
+          redisClient.hset('products', product.name.toString(), JSON.stringify({ ...product, category: categoryName }));
           insertToDbPromises.push(Models.ProductDetails.create({
             productID: product.id,
             name: product.name,
@@ -43,6 +49,7 @@ module.exports = {
         });
         categoryCounter += 1;
       });
+      redisClient.quit();
       return Promise.all(insertToDbPromises);
     });
   },

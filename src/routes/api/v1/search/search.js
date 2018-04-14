@@ -7,40 +7,58 @@ const queryResultDecomposer = queryResult => ({
   name: queryResult.name,
 });
 
-const getProductByProductName = (request, response) => {
+const getProductByProductName = (request, response, redisClient) => {
   const requestAllias = request.params.productname;
-  Models.ProductDetails.findAll({
-    where: {
-      name: {
-        [Op.like]: `%${requestAllias}%`,
-      },
-    },
-    limit: 10,
-  }).then((queryResult) => {
-    if (queryResult.length === 0) {
-      response({
-        statusCode: 404,
-        error: 'Product/s not found',
+  redisClient.hkeys('products', (error, res) => {
+    const searchKeys = [];
+    res.forEach((product) => {
+      if (product.includes(requestAllias)) {
+        searchKeys.push(product);
+      }
+    });
+    if (searchKeys.length === 0) {
+      Models.ProductDetails.findAll({
+        where: {
+          name: {
+            [Op.like]: `%${requestAllias}%`,
+          },
+        },
+        limit: 10,
+      }).then((queryResult) => {
+        if (queryResult.length === 0) {
+          response({
+            statusCode: 404,
+            error: 'Product/s not found',
+          });
+        } else {
+          const decomposedQueryResult = [];
+          queryResult.forEach((productObject) => {
+            decomposedQueryResult.push(queryResultDecomposer(productObject));
+          });
+          response({
+            statusCode: 200,
+            data: decomposedQueryResult,
+          });
+        }
+      }).catch((queryError) => {
+        response({
+          statusCode: 404,
+          error: 'Products unavailable',
+        });
       });
     } else {
-      const decomposedQueryResult = [];
-      queryResult.forEach((productObject) => {
-        decomposedQueryResult.push(queryResultDecomposer(productObject));
-      });
-      response({
-        statusCode: 200,
-        data: decomposedQueryResult,
+      redisClient.hmget('products', searchKeys, (e, value) => {
+        console.log('Served from cache');
+        response({
+          statusCode: 200,
+          data: value.map(product => queryResultDecomposer(JSON.parse(product))),
+        });
       });
     }
-  }).catch((queryError) => {
-    response({
-      statusCode: 404,
-      error: 'Products unavailable',
-    });
   });
 };
 
-module.exports = [
+module.exports = redisClient => [
   {
     method: 'GET',
     path: '/search/{productname}',
@@ -49,7 +67,7 @@ module.exports = [
         mode: 'optional',
       },
     },
-    handler: getProductByProductName,
+    handler: (request, response) => getProductByProductName(request, response, redisClient),
   },
 ];
 

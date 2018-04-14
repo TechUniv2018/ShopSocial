@@ -22,7 +22,7 @@ const segregateCartContentsOfSession = require('./api/v1/cart/segregateCartConte
 const getUserFriends = require('./user/getFriends');
 const addFriend = require('./user/addFriend');
 
-const routes = [].concat(
+const routes = redisClient => [].concat(
   addProductById,
   addProductsByCategoryAndPrice,
   removeProductByID,
@@ -41,10 +41,10 @@ const routes = [].concat(
   userLoginRoute,
   userLogout,
   adminLogout,
-  search,
+  search(redisClient),
   getCartContentsOfSession,
   segregateCartContentsOfSession,
   getUserFriends,
   addFriend,
 );
-module.exports = routes;
+module.exports = redisClient => routes(redisClient);

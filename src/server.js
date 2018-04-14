@@ -1,5 +1,6 @@
 const Hapi = require('hapi');
 const routes = require('./routes');
+const Redis = require('redis');
 const Jwt = require('hapi-auth-jwt2');
 const secret = require('./routes/admin/helper/secretKey');
 const IO = require('socket.io');
@@ -18,10 +19,12 @@ if (process.env.NODE_ENV) {
 
 server.connection({
   port: portNo,
-  host: 'localhost',
+  host: '0.0.0.0',
   labels: ['app'],
 });
 const app = server.select('app');
+const redisClient = Redis.createClient();
+
 server.register(Jwt, (err) => {
   if (err) {
     console.log(err);
@@ -37,7 +40,7 @@ server.register(Jwt, (err) => {
     },
   );
   server.auth.default('jwt');
-  server.route(routes);
+  server.route(routes(redisClient));
 
   const io = IO(app.listener);
 
