@@ -4,6 +4,8 @@ const Redis = require('redis');
 const Jwt = require('hapi-auth-jwt2');
 const secret = require('./routes/admin/helper/secretKey');
 const IO = require('socket.io');
+const Inert = require('inert');
+
 
 const validate = () => {};
 const server = new Hapi.Server();
@@ -19,8 +21,11 @@ if (process.env.NODE_ENV) {
 
 server.connection({
   port: portNo,
-  host: '0.0.0.0',
+  host: '127.0.0.1',
   labels: ['app'],
+  routes: {
+    cors: true,
+  },
 });
 const app = server.select('app');
 const redisClient = Redis.createClient();

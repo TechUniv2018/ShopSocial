@@ -4,14 +4,12 @@ const Models = require('../../../../../models/');
 let cartID;
 
 beforeAll((done) => {
-  // const createUser = Models.UserDetails.create(sampleUser);
   const sampleUser = {
     name: 'Allen',
     email: 'abc@gmail.com',
     password: '#2323atfagd',
   };
   const CartObj = {
-
     sessionID: null,
     userID: 1,
   };
@@ -37,35 +35,34 @@ beforeAll((done) => {
     image: 'http://img.bbystatic.com/BestBuy_US/images/products/4390/43900_sa.jpg',
     category: 'Alkaline Batteries',
   };
-    // console.log('hello');Models.UserDetails.create(sampleUser);
-  // const addCartId =
-  Models.ProductDetails.create(sampleProduct2).then(() => {
-    Models.ProductDetails.create(sampleProduct).then(() => {
-      Models.UserDetails.create(sampleUser).then(() => {
-        Models.CartsWSessions.create(CartObj).then(() => {
-          Models.CartsWSessions.findOne({
-            where: { userID: 1 },
-
-          }).then((message) => {
-          // console.log('cartidgot', message);
-            cartID = message.cartID;
-            const proobj = {
-              cartID,
-              productID: 43904,
-              addedByUser: 1,
-
-            };
-            const proobj2 = {
-              cartID,
-              productID: 43905,
-              addedByUser: 1,
-
-            };
-            Models.CartsWProducts.create(proobj).then(() => {
-              Models.CartsWProducts.create(proobj2).then(() => {
-                done();
+  Models.UserDetails.destroy({ truncate: true, cascade: true }).then(() => {
+    Models.CartsWSessions.destroy({ truncate: true, cascade: true }).then(() => {
+      Models.ProductDetails.destroy({ truncate: true, cascade: true }).then(() => {
+        Models.ProductDetails.create(sampleProduct2).then(() => {
+          Models.ProductDetails.create(sampleProduct).then(() => {
+            Models.UserDetails.create(sampleUser).then(() => {
+              Models.CartsWSessions.create(CartObj).then(() => {
+                Models.CartsWSessions.findOne({
+                  where: { userID: 1 },
+                }).then((message) => {
+                  cartID = message.cartID;
+                  const proobj = {
+                    cartID,
+                    productID: 43904,
+                    addedByUser: 1,
+                  };
+                  const proobj2 = {
+                    cartID,
+                    productID: 43905,
+                    addedByUser: 1,
+                  };
+                  Models.CartsWProducts.create(proobj).then(() => {
+                    Models.CartsWProducts.create(proobj2).then(() => {
+                      done();
+                    });
+                  });
+                });
               });
-              done();
             });
           });
         });
@@ -75,14 +72,17 @@ beforeAll((done) => {
 });
 
 afterAll((done) => {
-  Models.UserDetails.destroy({ truncate: true, cascade: true });
-  Models.ProductDetails.destroy({ truncate: true, cascade: true });
-  Models.CartswProducts.destroy({ truncate: true });
-  Models.CartsWSessions.destroy({ truncate: true, cascade: true }).then(() => {
-    done();
+  Models.CartswProducts.destroy({ truncate: true }).then(() => {
+    Models.CartsWSessions.destroy({ truncate: true, cascade: true }).then(() => {
+      Models.UserDetails.destroy({ truncate: true, cascade: true }).then(() => {
+        Models.ProductDetails.destroy({ truncate: true, cascade: true }).then(() => {
+          done();
+        });
+      });
+    });
   });
 });
-jest.setTimeout(15000);
+
 describe('must return reponse fetch cart ', () => {
   it(' must return 200 for successsful fetch', (done) => {
     const req = {

@@ -57,7 +57,7 @@ describe('must return reponse in accordance to product added in cart ', () => {
   it(' must return response of 201 for unew product added to cart', (done) => {
     const req = {
       method: 'POST',
-      payload: { cartId: cartID, productId: 43900, userId: 1 },
+      payload: JSON.stringify({ cartId: cartID, productId: 43900, userId: 1 }),
       url: '/api/v1/cart/addToCart',
     };
     server.inject(req, (res) => {
@@ -75,7 +75,6 @@ describe('must return reponse in accordance to product added in cart ', () => {
     };
     server.inject(req, (res) => {
       expect(res.statusCode).toBe(400);
-
       done();
     });
   });
