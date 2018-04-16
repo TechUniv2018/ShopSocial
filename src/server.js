@@ -4,7 +4,7 @@ const Jwt = require('hapi-auth-jwt2');
 const secret = require('./routes/admin/helper/secretKey');
 const IO = require('socket.io');
 
-const validate = () => {};
+const validate = () => { };
 const server = new Hapi.Server();
 
 
@@ -18,7 +18,7 @@ if (process.env.NODE_ENV) {
 
 server.connection({
   port: portNo,
-  host: 'localhost',
+  host: '0.0.0.0',
   labels: ['app'],
 });
 const app = server.select('app');
