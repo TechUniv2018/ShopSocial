@@ -21,7 +21,7 @@ if (process.env.NODE_ENV) {
 
 server.connection({
   port: portNo,
-  host: '127.0.0.1',
+  host: '0.0.0.0',
   labels: ['app'],
   routes: {
     cors: true,
@@ -30,10 +30,12 @@ server.connection({
 const app = server.select('app');
 const redisClient = Redis.createClient();
 
-server.register(Jwt, (err) => {
-  if (err) {
-    console.log(err);
-  }
+// {
+//   host: '192.168.1.7',
+//   port: '9090',
+// } For doocker
+server.register(Inert);
+server.register(Jwt, () => {
   server.auth.strategy(
     'jwt', 'jwt',
     {
@@ -50,35 +52,26 @@ server.register(Jwt, (err) => {
   const io = IO(app.listener);
 
   io.on('connection', (socket) => {
-    console.log('connected');
     socket.on('connectTogether', (reqobj) => {
-      console.log('Together request: ', reqobj);
       io.sockets.emit('relayConnectTogether', reqobj);
     });
     socket.on('connectTogetherResponse', (reqobj) => {
-      console.log('Together Request Response: ', reqobj);
       io.sockets.emit('relayConnectTogetherResponse', reqobj);
     });
     socket.on('mypingrequest', (reqobj) => {
-      console.log('Together Buddy Online check: ', reqobj);
       io.sockets.emit('responsePingRequest', reqobj);
     });
     socket.on('disconnectTogetherNoti', (reqobj) => {
-      console.log('Disconnect together notification', reqobj);
       io.sockets.emit('relaydisconnectTogetherNoti', reqobj);
     });
     socket.on('urlTogetherchange', (reqobj) => {
-      console.log('Together change together notification', reqobj);
       if (reqobj.sEmail !== '' && reqobj.rEmail !== '') {
         io.sockets.emit('urlTogetherChangeRelay', reqobj);
-        console.log('urlchange socket relayed');
       }
     });
     socket.on('scrollTogetherchange', (reqobj) => {
-      console.log('Together scroll change together notification', reqobj);
       if (reqobj.sEmail !== '' && reqobj.rEmail !== '') {
         io.sockets.emit('scrollTogetherChangeRelay', reqobj);
-        console.log('scrollchange socket relayed');
       }
     });
   });

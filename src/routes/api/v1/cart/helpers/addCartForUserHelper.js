@@ -2,7 +2,6 @@ const Models = require('../../../../../../models/');
 
 const addCartForUserHelper = (userId) => {
   const CartObj = {
-
     sessionID: null,
     userID: userId,
   };

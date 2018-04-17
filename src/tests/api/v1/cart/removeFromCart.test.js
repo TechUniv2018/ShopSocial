@@ -9,10 +9,7 @@ beforeAll((done) => {
     email: 'abc@gmail.com',
     password: '#2323atfagd',
   };
-  const cartObj = {
-    sessionID: null,
-    userID: 1,
-  };
+
   const sampleProduct = {
     productID: 43210,
     name: 'Mycell - AAA Batteries (4-Pack)',
@@ -26,11 +23,15 @@ beforeAll((done) => {
   };
   Models.UserDetails.destroy({ truncate: true, cascade: true }).then(() => {
     Models.CartsWSessions.destroy({ truncate: true, cascade: true }).then(() => {
-      Models.UserDetails.create(sampleUser).then(() => {
+      Models.UserDetails.create(sampleUser).then((userResponse) => {
         Models.ProductDetails.create(sampleProduct).then(() => {
+          const cartObj = {
+            sessionID: null,
+            userID: userResponse.dataValues.id,
+          };
           Models.CartsWSessions.create(cartObj).then(() => {
             Models.CartsWSessions.findOne({
-              where: { userID: 1 },
+              where: { userID: userResponse.dataValues.id },
             }).then((cartObject) => {
               console.log(cartObject);
               cartID = cartObject.cartID;
@@ -38,7 +39,7 @@ beforeAll((done) => {
               Models.CartsWProducts.create({
                 cartID,
                 productID: 43210,
-                addedByUser: 1,
+                addedByUser: userResponse.dataValues.id,
               }).then(() => {
                 done();
               });
@@ -62,7 +63,7 @@ afterAll((done) => {
   });
 });
 
-describe('must return reponse in accordance to product added in cart ', () => {
+describe('must return reponse in accordance to product removed from cart ', () => {
   it(' must return response.message containg 1 for sucessful product removed from cart', (done) => {
     const req = {
       method: 'DELETE',

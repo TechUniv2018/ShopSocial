@@ -7,9 +7,9 @@
     "dialect": "postgres"
   },
   "test": {
-    "username": "developer",
-    "password": "null",
-    "database": "database_development",
+    "username": "tester",
+    "password": "root",
+    "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
@@ -18,6 +18,6 @@
     "password": "null",
     "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   }
 }

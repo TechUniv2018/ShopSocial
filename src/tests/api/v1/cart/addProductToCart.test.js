@@ -11,7 +11,6 @@ beforeAll((done) => {
     password: '#2323atfagd',
   };
   const CartObj = {
-
     sessionID: null,
     userID: 1,
   };
@@ -27,7 +26,6 @@ beforeAll((done) => {
     category: 'Alkaline Batteries',
   };
 
-  // console.log('hello');Models.UserDetails.create(sampleUser);
   const addCartId = Models.CartsWSessions.create(CartObj);
   addCartId.then(() => {
     Models.ProductDetails.create(sampleProduct).then(() => {
@@ -36,7 +34,6 @@ beforeAll((done) => {
           where: { userID: 1 },
 
         }).then((message) => {
-          // console.log('cartidgot', message);
           cartID = message.cartID;
           done();
         });

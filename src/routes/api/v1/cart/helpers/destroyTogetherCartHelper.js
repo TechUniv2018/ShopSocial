@@ -4,7 +4,6 @@ const destroyTogetherCartHelper = (sessionId) => {
   const remSessionCart = Models.CartsWSessions.destroy({
     where: {
       sessionID: sessionId,
-
     },
 
   });

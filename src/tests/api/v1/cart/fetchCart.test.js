@@ -9,10 +9,6 @@ beforeAll((done) => {
     email: 'abc@gmail.com',
     password: '#2323atfagd',
   };
-  const CartObj = {
-    sessionID: null,
-    userID: 1,
-  };
   const sampleProduct = {
     productID: 43904,
     name: 'Duracell - AAA Batteries (4-Pack)',
@@ -40,21 +36,25 @@ beforeAll((done) => {
       Models.ProductDetails.destroy({ truncate: true, cascade: true }).then(() => {
         Models.ProductDetails.create(sampleProduct2).then(() => {
           Models.ProductDetails.create(sampleProduct).then(() => {
-            Models.UserDetails.create(sampleUser).then(() => {
+            Models.UserDetails.create(sampleUser).then((userRes) => {
+              const CartObj = {
+                sessionID: null,
+                userID: userRes.dataValues.id,
+              };
               Models.CartsWSessions.create(CartObj).then(() => {
                 Models.CartsWSessions.findOne({
-                  where: { userID: 1 },
+                  where: { userID: userRes.dataValues.id },
                 }).then((message) => {
                   cartID = message.cartID;
                   const proobj = {
                     cartID,
                     productID: 43904,
-                    addedByUser: 1,
+                    addedByUser: userRes.dataValues.id,
                   };
                   const proobj2 = {
                     cartID,
                     productID: 43905,
-                    addedByUser: 1,
+                    addedByUser: userRes.dataValues.id,
                   };
                   Models.CartsWProducts.create(proobj).then(() => {
                     Models.CartsWProducts.create(proobj2).then(() => {
@@ -87,28 +87,22 @@ describe('must return reponse fetch cart ', () => {
   it(' must return 200 for successsful fetch', (done) => {
     const req = {
       method: 'GET',
-
       url: `/api/v1/cart/fetchCart/${cartID}`,
     };
     server.inject(req, (res) => {
       expect(res.statusCode).toBe(200);
-      const resm = JSON.parse(res.payload);
-      // expect(resm.message).toEqual(1);
-      console.log(resm.message); // contains 1 for successful delete
       done();
     });
   });
   it(' must return response.message containg array of product idsfor sucessful product fetched from cart', (done) => {
     const req = {
       method: 'GET',
-
       url: `/api/v1/cart/fetchCart/${cartID}`,
     };
     server.inject(req, (res) => {
       expect(res.statusCode).toBe(200);
       const resm = JSON.parse(res.payload);
       expect(resm.message.length).toEqual(2);
-      // console.log(resm.message); // contains 1 for successful delete
       done();
     });
   });

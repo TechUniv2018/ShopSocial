@@ -1,0 +1,26 @@
+version: '2'
+services:
+  redis:
+    image: "redis:alpine"
+    ports: 
+      - "9090:6379"
+  postgres:
+    image: "postgres:9.4"
+    ports:
+      - "8090:5432"
+    environment:
+     POSTGRES_PASSWORD: root
+     POSTGRES_USER: developer
+     POSTGRES_DB: database_development
+  web:
+    build: .
+    ports:
+     - "8080:8080"
+    links:
+     - postgres 
+    volumes:
+     - .:/usr/src/app
+    depends_on:
+      - postgres
+      - redis
+    command: ["npm", "start"]

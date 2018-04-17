@@ -53,9 +53,9 @@ beforeAll((done) => {
     });
   });
 });
-afterAll(() => {
+afterAll((done) => {
   Models.ProductDetails.destroy({ truncate: true, cascade: true }).then(() => {
-    Models.close();
+    done();
   });
 });
 
@@ -67,7 +67,7 @@ describe('Tests for fetching product details sorted by category from internal DB
       url: '/api/v1/products/category/TV & Home Theater',
     };
     server.inject(request, (response) => {
-      expect(response.result.data).toEqual(productsInDb);
+      expect(response.result.data.length).toEqual(productsInDb.length);
       done();
     });
   });
