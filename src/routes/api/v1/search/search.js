@@ -47,12 +47,14 @@ const getProductByProductName = (request, response, redisClient) => {
         });
       });
     } else {
-      redisClient.hmget('products', searchKeys, (e, value) => {
+      redisClient.hmget('productName', searchKeys, (e, value) => {
         console.log('Served from cache');
+        console.log(e, value);
         response({
           statusCode: 200,
           data: value.map((product) => {
             const parsedJSON = JSON.parse(product);
+            console.log(parsedJSON);
             return ({ productID: parsedJSON.id, name: parsedJSON.name });
           }),
         });
